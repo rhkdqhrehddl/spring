@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PGController {	
 	@RequestMapping(value = "/XPayClient/*.do", method = RequestMethod.POST)
 	public String XPayClient(HttpServletRequest request) {
+		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}

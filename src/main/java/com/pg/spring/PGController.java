@@ -1,0 +1,19 @@
+package com.pg.spring;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping("/PG")
+public class PGController {	
+	@RequestMapping(value = "/XPayClient/*.do", method = RequestMethod.POST)
+	public String XPayClient(HttpServletRequest request) {
+		String[] aa = request.getServletPath().split("[.]");
+		return request.getServletPath().split("[.]")[0];
+	}
+
+}

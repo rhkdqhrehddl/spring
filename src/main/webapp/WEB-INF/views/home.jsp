@@ -9,6 +9,7 @@
 	Hello world! (Test ver.)  
 </h1>
 
+<P> word : ${temp_word} </P>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

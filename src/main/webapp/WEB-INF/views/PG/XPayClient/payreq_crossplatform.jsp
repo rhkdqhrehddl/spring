@@ -17,7 +17,7 @@
  	* 해당 환경파일이 외부에 노출이 되는 경우 해킹의 위험이 존재하므로 반드시 외부에서 접근이 불가능한 경로에 두시기 바랍니다. 
  	* 예) [Window 계열] C:\inetpub\wwwroot\lgdacom ==> 절대불가(웹 디렉토리)
  	*/
- 	if(System.getProperty("os.name") == "linux"){
+ 	if(System.getProperty("os.name").indexOf("linux") > 0){
  		String configPath = "";
  	}
  	String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.

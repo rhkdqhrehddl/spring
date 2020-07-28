@@ -2,6 +2,8 @@
 <%@ page import="java.util.*" %>
 <%@ page import="lgdacom.XPayClient.XPayClient"%>
 <%@ page import="java.security.MessageDigest" %>
+<%@ page import="java.net.InetAddress" %>
+<%@ page import="java.net.UnknownHostException" %>
 
 <%
 	request.setCharacterEncoding("utf-8");
@@ -10,6 +12,15 @@
      *
      * 샘플페이지에서는 기본 파라미터만 예시되어 있으며, 별도로 필요하신 파라미터는 연동메뉴얼을 참고하시어 추가 하시기 바랍니다.
      */
+
+    InetAddress local;
+    String local_ip = "";
+    try { 
+    	local = InetAddress.getLocalHost(); 
+    	local_ip = local.getHostAddress();  
+    } catch (UnknownHostException e) { 
+    	e.printStackTrace(); 
+    }
 
      /* ※ 중요
  	* 환경설정 파일의 경우 반드시 외부에서 접근이 가능한 경로에 두시면 안됩니다.
@@ -49,12 +60,12 @@
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다.
      */
-    String LGD_CASNOTEURL		= "http://localhost:8081/PG/XPayClient/cas_noteurl.do";
+    String LGD_CASNOTEURL		= "http://" + local_ip + ":8081/PG/XPayClient/cas_noteurl.do";
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
-    String LGD_RETURNURL		= "http://localhost:8081/PG/XPayClient/returnurl.do";
+    String LGD_RETURNURL		= "http://" + local_ip + ":8081/PG/XPayClient/returnurl.do";
     String LGD_TAXFREEAMOUNT = request.getParameter("LGD_TAXFREEAMOUNT");
 	String LGD_DIVIDE_INFO 		= "{\"divideinfo\":[{\"sub_merchantid\":\"dacomnpg\",\"amount\":\"20\",\"productinfo\":\"상품1\"},{\"sub_merchantid\":\"dacomst7\",\"amount\":\"80\",\"productinfo\":\"상품2\"}]}";  
     
@@ -290,6 +301,9 @@ function payment_return() {
         <td>주문번호 </td>
         <td><%= LGD_OID %></td>
     </tr>
+    <tr>
+    	<td>IP</td>
+    	<td><%= local_ip %> </td>
     <tr>
         <td colspan="2">* 추가 상세 결제요청 파라미터는 메뉴얼을 참조하시기 바랍니다.</td>
     </tr>

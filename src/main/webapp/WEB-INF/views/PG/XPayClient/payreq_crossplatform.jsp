@@ -49,12 +49,12 @@
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다.
      */
-    String LGD_CASNOTEURL		= "http://localhost/PG/XPayClient/cas_noteurl.do";
+    String LGD_CASNOTEURL		= "http://localhost:8081/PG/XPayClient/cas_noteurl.do";
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
-    String LGD_RETURNURL		= "http://localhost/PG/XPayClient/returnurl.do";
+    String LGD_RETURNURL		= "http://localhost:8081/PG/XPayClient/returnurl.do";
     String LGD_TAXFREEAMOUNT = request.getParameter("LGD_TAXFREEAMOUNT");
 	String LGD_DIVIDE_INFO 		= "{\"divideinfo\":[{\"sub_merchantid\":\"dacomnpg\",\"amount\":\"20\",\"productinfo\":\"상품1\"},{\"sub_merchantid\":\"dacomst7\",\"amount\":\"80\",\"productinfo\":\"상품2\"}]}";  
     

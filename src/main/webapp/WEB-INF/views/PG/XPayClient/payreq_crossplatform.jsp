@@ -17,7 +17,9 @@
     String local_ip = "";
     try { 
     	local = InetAddress.getLocalHost(); 
-    	local_ip = local.getHostAddress();  
+    	local_ip = local.getHostAddress(); 
+    	System.out.println(request.getLocalAddr());
+    	System.out.println(request.getRemoteAddr());
     } catch (UnknownHostException e) { 
     	e.printStackTrace(); 
     }
@@ -304,6 +306,15 @@ function payment_return() {
     <tr>
     	<td>IP</td>
     	<td><%= local_ip %> </td>
+    </tr>
+    <tr>
+    	<td>localIP</td>
+    	<td><%= request.getLocalAddr() %> </td>
+    </tr>
+    <tr>
+    	<td>remoteIP</td>
+    	<td><%= request.getRemoteAddr() %> </td>
+    </tr>
     <tr>
         <td colspan="2">* 추가 상세 결제요청 파라미터는 메뉴얼을 참조하시기 바랍니다.</td>
     </tr>

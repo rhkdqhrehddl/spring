@@ -18,7 +18,7 @@
  	* 예) [Window 계열] C:\inetpub\wwwroot\lgdacom ==> 절대불가(웹 디렉토리)
  	*/
  	if(System.getProperty("os.name").indexOf("linux") > 0){
- 		
+ 		System.out.print(System.getProperty("os.name").indexOf("linux") > 0);
  	}
  	String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
      

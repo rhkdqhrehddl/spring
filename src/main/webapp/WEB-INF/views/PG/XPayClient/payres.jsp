@@ -57,6 +57,7 @@
 	        out.println( "LG유플러스에서 제공한 환경파일이 정상적으로 설치 되었는지 확인하시기 바랍니다.<br>");        
 	        out.println( "mall.conf에는 Mert ID = Mert Key 가 반드시 등록되어 있어야 합니다.<br><br>");
 	        out.println( "문의전화 LG유플러스 1544-7772<br>");
+	        out.println(configPath);
 	        return;
 	   	
 	   	}else{      

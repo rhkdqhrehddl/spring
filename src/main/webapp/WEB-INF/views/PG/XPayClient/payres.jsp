@@ -25,6 +25,10 @@
 		
 	    String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
 	    
+	    if(System.getProperty("os.name").equals("Linux")){
+			configPath = "/root/lgdacom";
+	 	}
+	    
 	    /*
 	     *************************************************
 	     * 1.최종결제 요청 - BEGIN

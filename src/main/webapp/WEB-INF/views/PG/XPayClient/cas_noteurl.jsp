@@ -90,6 +90,9 @@
     
     String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
     
+    if(System.getProperty("os.name").equals("Linux")){
+		configPath = "/lgdacom";
+ 	}
 
     /*
      * hashdata 검증을 위한 mertkey는 상점관리자 -> 계약정보 -> 상점정보관리에서 확인하실수 있습니다. 

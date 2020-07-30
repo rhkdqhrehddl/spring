@@ -305,10 +305,6 @@ function payment_return() {
     	<td>OS</td>
     	<td><%= System.getProperty("os.name") %> </td>
    </tr>
-   <tr>
-    	<td>configPath</td>
-    	<td><%= configPath %> </td>
-   </tr>
     <tr>
         <td colspan="2">* 추가 상세 결제요청 파라미터는 메뉴얼을 참조하시기 바랍니다.</td>
     </tr>

@@ -94,6 +94,9 @@
 		configPath = "/lgdacom";
  	}
 
+
+	out.println(System.getProperty("os.name"));
+	out.println(configPath);
     /*
      * hashdata 검증을 위한 mertkey는 상점관리자 -> 계약정보 -> 상점정보관리에서 확인하실수 있습니다. 
      * LG유플러스에서 발급한 상점키로 반드시변경해 주시기 바랍니다.

@@ -94,9 +94,8 @@
 		configPath = "/lgdacom";
  	}
 
-
-	out.println(System.getProperty("os.name"));
-	out.println(configPath);
+    out.println(CST_PLATFORM);
+    
     /*
      * hashdata 검증을 위한 mertkey는 상점관리자 -> 계약정보 -> 상점정보관리에서 확인하실수 있습니다. 
      * LG유플러스에서 발급한 상점키로 반드시변경해 주시기 바랍니다.
@@ -107,12 +106,10 @@
     	 
     	 xpay = new XPayClient();
     	 out.println("cas_notetest1");
-    	 xpay.Init(configPath, CST_PLATFORM);
-    	 out.println("cas_notetest2");    	 
+    	 xpay.Init(configPath, CST_PLATFORM); 	 
     	 LGD_HASHDATA2 = xpay.GetHashDataCas(LGD_MID, LGD_OID, LGD_AMOUNT, LGD_RESPCODE, LGD_TIMESTAMP);
     	 
      } catch(Exception e) {
-    	 out.println(e.getLocalizedMessage());
     	 e.printStackTrace();
     	out.println("LG유플러스 제공 API를 사용할 수 없습니다. 환경파일 설정을 확인해 주시기 바랍니다. ");
  		out.println(""+e.getMessage());    	

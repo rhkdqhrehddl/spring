@@ -106,8 +106,9 @@
      try {
     	 
     	 xpay = new XPayClient();
+    	 out.println("cas_notetest1");
     	 xpay.Init(configPath, CST_PLATFORM);
-    	     	 
+    	 out.println("cas_notetest2");    	 
     	 LGD_HASHDATA2 = xpay.GetHashDataCas(LGD_MID, LGD_OID, LGD_AMOUNT, LGD_RESPCODE, LGD_TIMESTAMP);
     	 
      } catch(Exception e) {

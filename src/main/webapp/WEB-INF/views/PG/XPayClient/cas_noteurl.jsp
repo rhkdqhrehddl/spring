@@ -111,6 +111,7 @@
     	 LGD_HASHDATA2 = xpay.GetHashDataCas(LGD_MID, LGD_OID, LGD_AMOUNT, LGD_RESPCODE, LGD_TIMESTAMP);
     	 
      } catch(Exception e) {
+    	 out.println(e.getMessage());
     	 e.printStackTrace();
     	out.println("LG유플러스 제공 API를 사용할 수 없습니다. 환경파일 설정을 확인해 주시기 바랍니다. ");
  		out.println(""+e.getMessage());    	

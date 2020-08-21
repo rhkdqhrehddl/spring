@@ -1,38 +1,43 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="lgdacom.XPayClient.XPayClient"%>
 
 <%
+	request.setCharacterEncoding("utf-8");   	
     /*
-     * [Çö±Ý¿µ¼öÁõ ¹ß±Þ¿äÃ» ÆäÀÌÁö]
-     * Çö±Ý¿µ¼öÁõ_¿¬µ¿¸Þ´º¾ó ÂüÁ¶
+     * [í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰ìš”ì²­ íŽ˜ì´ì§€]
+     * í˜„ê¸ˆì˜ìˆ˜ì¦_ì—°ë™ë©”ë‰´ì–¼ ì°¸ì¡°
 	 *
-     * LGÀ¯ÇÃ·¯½ºÀ¸·Î ºÎÅÍ ³»·Á¹ÞÀº °Å·¡¹øÈ£(LGD_TID)¸¦ °¡Áö°í Ãë¼Ò ¿äÃ»À» ÇÕ´Ï´Ù.(ÆÄ¶ó¹ÌÅÍ Àü´Þ½Ã POST¸¦ »ç¿ëÇÏ¼¼¿ä)
-     * (½ÂÀÎ½Ã LGÀ¯ÇÃ·¯½ºÀ¸·Î ºÎÅÍ ³»·Á¹ÞÀº PAYKEY¿Í È¥µ¿ÇÏÁö ¸¶¼¼¿ä.)
+     * LGìœ í”ŒëŸ¬ìŠ¤ìœ¼ë¡œ ë¶€í„° ë‚´ë ¤ë°›ì€ ê±°ëž˜ë²ˆí˜¸(LGD_TID)ë¥¼ ê°€ì§€ê³  ì·¨ì†Œ ìš”ì²­ì„ í•©ë‹ˆë‹¤.(íŒŒë¼ë¯¸í„° ì „ë‹¬ì‹œ POSTë¥¼ ì‚¬ìš©í•˜ì„¸ìš”)
+     * (ìŠ¹ì¸ì‹œ LGìœ í”ŒëŸ¬ìŠ¤ìœ¼ë¡œ ë¶€í„° ë‚´ë ¤ë°›ì€ PAYKEYì™€ í˜¼ë™í•˜ì§€ ë§ˆì„¸ìš”.)
      */
-    String CST_PLATFORM           = request.getParameter("CST_PLATFORM");                 //LGÀ¯ÇÃ·¯½º °áÁ¦¼­ºñ½º ¼±ÅÃ(test:Å×½ºÆ®, service:¼­ºñ½º)
-    String CST_MID                = request.getParameter("CST_MID");                      //LGÀ¯ÇÃ·¯½ºÀ¸·Î ºÎÅÍ ¹ß±Þ¹ÞÀ¸½Å »óÁ¡¾ÆÀÌµð¸¦ ÀÔ·ÂÇÏ¼¼¿ä.
-    String LGD_MID                = ("test".equals(CST_PLATFORM.trim())?"t":"")+CST_MID;  //Å×½ºÆ® ¾ÆÀÌµð´Â 't'¸¦ Á¦¿ÜÇÏ°í ÀÔ·ÂÇÏ¼¼¿ä.
-                                                                                          //»óÁ¡¾ÆÀÌµð(ÀÚµ¿»ý¼º)
-    String LGD_METHOD   		  = request.getParameter("LGD_METHOD");                   //¸Þ¼Òµå('AUTH':½ÂÀÎ, 'CANCEL' Ãë¼Ò)
-    String LGD_OID                = request.getParameter("LGD_OID");					  //ÁÖ¹®¹øÈ£(»óÁ¡Á¤ÀÇ À¯´ÏÅ©ÇÑ ÁÖ¹®¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä)
-    String LGD_PAYTYPE            = request.getParameter("LGD_PAYTYPE");				  //°áÁ¦¼ö´Ü ÄÚµå (SC0030:°èÁÂÀÌÃ¼, SC0040:°¡»ó°èÁÂ, SC0100:¹«ÅëÀåÀÔ±Ý ´Üµ¶)
-    String LGD_AMOUNT     		  = request.getParameter("LGD_AMOUNT");             	  //±Ý¾×("," ¸¦ Á¦¿ÜÇÑ ±Ý¾×À» ÀÔ·ÂÇÏ¼¼¿ä)
-    String LGD_CASHCARDNUM        = request.getParameter("LGD_CASHCARDNUM");              //¹ß±Þ¹øÈ£(Çö±Ý¿µ¼öÁõÄ«µå¹øÈ£,ÈÞ´ëÆù¹øÈ£ µîµî)
-    String LGD_CUSTOM_MERTNAME    = request.getParameter("LGD_CUSTOM_MERTNAME");       	  //»óÁ¡¸í
-    String LGD_CUSTOM_BUSINESSNUM = request.getParameter("LGD_CUSTOM_BUSINESSNUM");       //»ç¾÷ÀÚµî·Ï¹øÈ£
-    String LGD_CUSTOM_MERTPHONE   = request.getParameter("LGD_CUSTOM_MERTPHONE");         //»óÁ¡ ÀüÈ­¹øÈ£
-    String LGD_CASHRECEIPTUSE     = request.getParameter("LGD_CASHRECEIPTUSE");			  //Çö±Ý¿µ¼öÁõ¹ß±Þ¿ëµµ('1':¼Òµæ°øÁ¦, '2':ÁöÃâÁõºù)
-    String LGD_PRODUCTINFO        = request.getParameter("LGD_PRODUCTINFO");			  //»óÇ°¸í
-    String LGD_TID                = request.getParameter("LGD_TID");			  		  //LGÀ¯ÇÃ·¯½º °Å·¡¹øÈ£ (Ãë¼Ò½Ã¸¸ »ç¿ë) 
+    String CST_PLATFORM           = request.getParameter("CST_PLATFORM");                 //LGìœ í”ŒëŸ¬ìŠ¤ ê²°ì œì„œë¹„ìŠ¤ ì„ íƒ(test:í…ŒìŠ¤íŠ¸, service:ì„œë¹„ìŠ¤)
+    String CST_MID                = request.getParameter("CST_MID");                      //LGìœ í”ŒëŸ¬ìŠ¤ìœ¼ë¡œ ë¶€í„° ë°œê¸‰ë°›ìœ¼ì‹  ìƒì ì•„ì´ë””ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.
+    String LGD_MID                = ("test".equals(CST_PLATFORM.trim())?"t":"")+CST_MID;  //í…ŒìŠ¤íŠ¸ ì•„ì´ë””ëŠ” 't'ë¥¼ ì œì™¸í•˜ê³  ìž…ë ¥í•˜ì„¸ìš”.
+                                                                                          //ìƒì ì•„ì´ë””(ìžë™ìƒì„±)
+    String LGD_METHOD   		  = request.getParameter("LGD_METHOD");                   //ë©”ì†Œë“œ('AUTH':ìŠ¹ì¸, 'CANCEL' ì·¨ì†Œ)
+    String LGD_OID                = request.getParameter("LGD_OID");					  //ì£¼ë¬¸ë²ˆí˜¸(ìƒì ì •ì˜ ìœ ë‹ˆí¬í•œ ì£¼ë¬¸ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”)
+    String LGD_PAYTYPE            = request.getParameter("LGD_PAYTYPE");				  //ê²°ì œìˆ˜ë‹¨ ì½”ë“œ (SC0030:ê³„ì¢Œì´ì²´, SC0040:ê°€ìƒê³„ì¢Œ, SC0100:ë¬´í†µìž¥ìž…ê¸ˆ ë‹¨ë…)
+    String LGD_AMOUNT     		  = request.getParameter("LGD_AMOUNT");             	  //ê¸ˆì•¡("," ë¥¼ ì œì™¸í•œ ê¸ˆì•¡ì„ ìž…ë ¥í•˜ì„¸ìš”)
+    String LGD_CASHCARDNUM        = request.getParameter("LGD_CASHCARDNUM");              //ë°œê¸‰ë²ˆí˜¸(í˜„ê¸ˆì˜ìˆ˜ì¦ì¹´ë“œë²ˆí˜¸,íœ´ëŒ€í°ë²ˆí˜¸ ë“±ë“±)
+    String LGD_CUSTOM_MERTNAME    = request.getParameter("LGD_CUSTOM_MERTNAME");       	  //ìƒì ëª…
+    String LGD_CUSTOM_BUSINESSNUM = request.getParameter("LGD_CUSTOM_BUSINESSNUM");       //ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸
+    String LGD_CUSTOM_MERTPHONE   = request.getParameter("LGD_CUSTOM_MERTPHONE");         //ìƒì  ì „í™”ë²ˆí˜¸
+    String LGD_CASHRECEIPTUSE     = request.getParameter("LGD_CASHRECEIPTUSE");			  //í˜„ê¸ˆì˜ìˆ˜ì¦ë°œê¸‰ìš©ë„('1':ì†Œë“ê³µì œ, '2':ì§€ì¶œì¦ë¹™)
+    String LGD_PRODUCTINFO        = request.getParameter("LGD_PRODUCTINFO");			  //ìƒí’ˆëª…
+    String LGD_TID                = request.getParameter("LGD_TID");			  		  //LGìœ í”ŒëŸ¬ìŠ¤ ê±°ëž˜ë²ˆí˜¸ (ì·¨ì†Œì‹œë§Œ ì‚¬ìš©) 
 
-    /* ¡Ø Áß¿ä
-	* È¯°æ¼³Á¤ ÆÄÀÏÀÇ °æ¿ì ¹Ýµå½Ã ¿ÜºÎ¿¡¼­ Á¢±ÙÀÌ °¡´ÉÇÑ °æ·Î¿¡ µÎ½Ã¸é ¾ÈµË´Ï´Ù.
-	* ÇØ´ç È¯°æÆÄÀÏÀÌ ¿ÜºÎ¿¡ ³ëÃâÀÌ µÇ´Â °æ¿ì ÇØÅ·ÀÇ À§ÇèÀÌ Á¸ÀçÇÏ¹Ç·Î ¹Ýµå½Ã ¿ÜºÎ¿¡¼­ Á¢±ÙÀÌ ºÒ°¡´ÉÇÑ °æ·Î¿¡ µÎ½Ã±â ¹Ù¶ø´Ï´Ù. 
-	* ¿¹) [Window °è¿­] C:\inetpub\wwwroot\lgdacom ==> Àý´ëºÒ°¡(À¥ µð·ºÅä¸®)
+    /* â€» ì¤‘ìš”
+	* í™˜ê²½ì„¤ì • íŒŒì¼ì˜ ê²½ìš° ë°˜ë“œì‹œ ì™¸ë¶€ì—ì„œ ì ‘ê·¼ì´ ê°€ëŠ¥í•œ ê²½ë¡œì— ë‘ì‹œë©´ ì•ˆë©ë‹ˆë‹¤.
+	* í•´ë‹¹ í™˜ê²½íŒŒì¼ì´ ì™¸ë¶€ì— ë…¸ì¶œì´ ë˜ëŠ” ê²½ìš° í•´í‚¹ì˜ ìœ„í—˜ì´ ì¡´ìž¬í•˜ë¯€ë¡œ ë°˜ë“œì‹œ ì™¸ë¶€ì—ì„œ ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥í•œ ê²½ë¡œì— ë‘ì‹œê¸° ë°”ëžë‹ˆë‹¤. 
+	* ì˜ˆ) [Window ê³„ì—´] C:\inetpub\wwwroot\lgdacom ==> ì ˆëŒ€ë¶ˆê°€(ì›¹ ë””ë ‰í† ë¦¬)
 	*/
 	
-    String configPath 			  = "C:/lgdacom";  										  //LGÀ¯ÇÃ·¯½º¿¡¼­ Á¦°øÇÑ È¯°æÆÄÀÏ("/conf/lgdacom.conf") À§Ä¡ ÁöÁ¤.
+    String configPath 			  = "C:/lgdacom";  										  //LGìœ í”ŒëŸ¬ìŠ¤ì—ì„œ ì œê³µí•œ í™˜ê²½íŒŒì¼("/conf/lgdacom.conf") ìœ„ì¹˜ ì§€ì •.
         
+    if(System.getProperty("os.name").equals("Linux")){
+		configPath = "/lgdacom";
+ 	}
+    
     LGD_METHOD       		= ( LGD_METHOD == null )?"":LGD_METHOD;
     LGD_OID       		    = ( LGD_OID == null )?"":LGD_OID;
     LGD_PAYTYPE       		= ( LGD_PAYTYPE == null )?"":LGD_PAYTYPE;
@@ -45,22 +50,22 @@
     LGD_PRODUCTINFO         = ( LGD_PRODUCTINFO == null )?"":LGD_PRODUCTINFO;
     LGD_TID         		= ( LGD_TID == null )?"":LGD_TID;
     
-	// (1) XpayClientÀÇ »ç¿ëÀ» À§ÇÑ xpay °´Ã¼ »ý¼º
+	// (1) XpayClientì˜ ì‚¬ìš©ì„ ìœ„í•œ xpay ê°ì²´ ìƒì„±
     XPayClient xpay = new XPayClient();
 
-	// (2) Init: XPayClient ÃÊ±âÈ­(È¯°æ¼³Á¤ ÆÄÀÏ ·Îµå) 
-	// configPath: ¼³Á¤ÆÄÀÏ
-	// CST_PLATFORM: - test, service °ª¿¡ µû¶ó lgdacom.confÀÇ test_url(test) ¶Ç´Â url(srvice) »ç¿ë
-	//				- test, service °ª¿¡ µû¶ó Å×½ºÆ®¿ë ¶Ç´Â ¼­ºñ½º¿ë ¾ÆÀÌµð »ý¼º
+	// (2) Init: XPayClient ì´ˆê¸°í™”(í™˜ê²½ì„¤ì • íŒŒì¼ ë¡œë“œ) 
+	// configPath: ì„¤ì •íŒŒì¼
+	// CST_PLATFORM: - test, service ê°’ì— ë”°ë¼ lgdacom.confì˜ test_url(test) ë˜ëŠ” url(srvice) ì‚¬ìš©
+	//				- test, service ê°’ì— ë”°ë¼ í…ŒìŠ¤íŠ¸ìš© ë˜ëŠ” ì„œë¹„ìŠ¤ìš© ì•„ì´ë”” ìƒì„±
     xpay.Init(configPath, CST_PLATFORM);
 
-	// (3) Init_TX: ¸Þ¸ð¸®¿¡ mall.conf, lgdacom.conf ÇÒ´ç ¹× Æ®·£Àè¼ÇÀÇ °íÀ¯ÇÑ Å° TXID »ý¼º
+	// (3) Init_TX: ë©”ëª¨ë¦¬ì— mall.conf, lgdacom.conf í• ë‹¹ ë° íŠ¸ëžœìž­ì…˜ì˜ ê³ ìœ í•œ í‚¤ TXID ìƒì„±
     xpay.Init_TX(LGD_MID);
     xpay.Set("LGD_TXNAME", "CashReceipt");
     xpay.Set("LGD_METHOD", LGD_METHOD);
     xpay.Set("LGD_PAYTYPE", LGD_PAYTYPE);
     
-    if (LGD_METHOD.equals("AUTH")){    // Çö±Ý¿µ¼öÁõ ¹ß±Þ ¿äÃ» 
+    if (LGD_METHOD.equals("AUTH")){    // í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰ ìš”ì²­ 
     	xpay.Set("LGD_OID", LGD_OID);
     	xpay.Set("LGD_CUSTOM_MERTNAME", LGD_CUSTOM_MERTNAME);
      	xpay.Set("LGD_CUSTOM_BUSINESSNUM", LGD_CUSTOM_BUSINESSNUM);
@@ -69,40 +74,40 @@
 		xpay.Set("LGD_AMOUNT", LGD_AMOUNT);
     	xpay.Set("LGD_CASHRECEIPTUSE", LGD_CASHRECEIPTUSE);
     	
-    	if (LGD_PAYTYPE.equals("SC0030")){  //±â°áÁ¦µÈ °èÁÂÀÌÃ¼°Ç Çö±Ý¿µ¼öÁõ ¹ß±Þ¿äÃ»½Ã ÇÊ¼ö  
+    	if (LGD_PAYTYPE.equals("SC0030")){  //ê¸°ê²°ì œëœ ê³„ì¢Œì´ì²´ê±´ í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰ìš”ì²­ì‹œ í•„ìˆ˜  
     		xpay.Set("LGD_TID", LGD_TID);
     	}
-    	else if (LGD_PAYTYPE.equals("SC0040")){  //±â°áÁ¦µÈ °¡»ó°èÁÂ°Ç Çö±Ý¿µ¼öÁõ ¹ß±Þ¿äÃ»½Ã ÇÊ¼ö  
+    	else if (LGD_PAYTYPE.equals("SC0040")){  //ê¸°ê²°ì œëœ ê°€ìƒê³„ì¢Œê±´ í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰ìš”ì²­ì‹œ í•„ìˆ˜  
     		xpay.Set("LGD_TID", LGD_TID);
     		xpay.Set("LGD_SEQNO", "001");
     	}
-    	else {  								//¹«ÅëÀåÀÔ±Ý ´Üµ¶°Ç ¹ß±Þ¿äÃ»  
+    	else {  								//ë¬´í†µìž¥ìž…ê¸ˆ ë‹¨ë…ê±´ ë°œê¸‰ìš”ì²­  
     		xpay.Set("LGD_PRODUCTINFO", LGD_PRODUCTINFO);
         }
-    }else{								// Çö±Ý¿µ¼öÁõ Ãë¼Ò ¿äÃ» 
+    }else{								// í˜„ê¸ˆì˜ìˆ˜ì¦ ì·¨ì†Œ ìš”ì²­ 
     	xpay.Set("LGD_TID", LGD_TID);
 
-    	if (LGD_PAYTYPE.equals("SC0040")){  //°¡»ó°èÁÂ°Ç Çö±Ý¿µ¼öÁõ ¹ß±ÞÃë¼Ò½Ã ÇÊ¼ö  
+    	if (LGD_PAYTYPE.equals("SC0040")){  //ê°€ìƒê³„ì¢Œê±´ í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰ì·¨ì†Œì‹œ í•„ìˆ˜  
 			xpay.Set("LGD_SEQNO", "001");
 
     	}
     }
     
     /*
-     * 1. Çö±Ý¿µ¼öÁõ ¹ß±Þ/Ãë¼Ò ¿äÃ» °á°úÃ³¸®
+     * 1. í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰/ì·¨ì†Œ ìš”ì²­ ê²°ê³¼ì²˜ë¦¬
      *
-     * °á°ú ¸®ÅÏ ÆÄ¶ó¹ÌÅÍ´Â ¿¬µ¿¸Þ´º¾óÀ» Âü°íÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
+     * ê²°ê³¼ ë¦¬í„´ íŒŒë¼ë¯¸í„°ëŠ” ì—°ë™ë©”ë‰´ì–¼ì„ ì°¸ê³ í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤.
      */
-	// (4) TX: lgdacom.conf¿¡ ¼³Á¤µÈ URL·Î ¼ÒÄÏ Åë½ÅÇÏ¿© ÃÖÁ¾ ÀÎÁõ¿äÃ», °á°ú°ªÀ¸·Î true, false ¸®ÅÏ
+	// (4) TX: lgdacom.confì— ì„¤ì •ëœ URLë¡œ ì†Œì¼“ í†µì‹ í•˜ì—¬ ìµœì¢… ì¸ì¦ìš”ì²­, ê²°ê³¼ê°’ìœ¼ë¡œ true, false ë¦¬í„´
     if (xpay.TX()) {
-        //1)Çö±Ý¿µ¼öÁõ ¹ß±Þ/Ãë¼Ò°á°ú È­¸éÃ³¸®(¼º°ø,½ÇÆÐ °á°ú Ã³¸®¸¦ ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.)
-        out.println("Çö±Ý¿µ¼öÁõ ¹ß±Þ/Ãë¼Ò ¿äÃ»Ã³¸®°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.  <br>");
+        //1)í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰/ì·¨ì†Œê²°ê³¼ í™”ë©´ì²˜ë¦¬(ì„±ê³µ,ì‹¤íŒ¨ ê²°ê³¼ ì²˜ë¦¬ë¥¼ í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤.)
+        out.println("í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰/ì·¨ì†Œ ìš”ì²­ì²˜ë¦¬ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.  <br>");
         out.println( "TX Response_code = " + xpay.m_szResCode + "<br>");
         out.println( "TX Response_msg = " + xpay.m_szResMsg + "<p>");
         
-        out.println("°Å·¡¹øÈ£ : " + xpay.Response("LGD_TID",0) + "<br>");
-        out.println("°á°úÄÚµå : " + xpay.Response("LGD_RESPCODE",0) + "<br>");
-        out.println("°á°ú¸Þ¼¼Áö : " + xpay.Response("LGD_RESPMSG",0) + "<p>");
+        out.println("ê±°ëž˜ë²ˆí˜¸ : " + xpay.Response("LGD_TID",0) + "<br>");
+        out.println("ê²°ê³¼ì½”ë“œ : " + xpay.Response("LGD_RESPCODE",0) + "<br>");
+        out.println("ê²°ê³¼ë©”ì„¸ì§€ : " + xpay.Response("LGD_RESPMSG",0) + "<p>");
         
         for (int i = 0; i < xpay.ResponseNameCount(); i++)
         {
@@ -115,8 +120,8 @@
         out.println("<p>");
         
     }else {
-        //2)API ¿äÃ» ½ÇÆÐ È­¸éÃ³¸®
-        out.println("Çö±Ý¿µ¼öÁõ ¹ß±Þ/Ãë¼Ò ¿äÃ»Ã³¸®°¡ ½ÇÆÐµÇ¾ú½À´Ï´Ù.  <br>");
+        //2)API ìš”ì²­ ì‹¤íŒ¨ í™”ë©´ì²˜ë¦¬
+        out.println("í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œê¸‰/ì·¨ì†Œ ìš”ì²­ì²˜ë¦¬ê°€ ì‹¤íŒ¨ë˜ì—ˆìŠµë‹ˆë‹¤.  <br>");
         out.println( "TX Response_code = " + xpay.m_szResCode + "<br>");
         out.println( "TX Response_msg = " + xpay.m_szResMsg + "<p>");
     }

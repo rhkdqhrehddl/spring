@@ -87,7 +87,8 @@
     LGD_RECEIVERPHONE       = request.getParameter("LGD_RECEIVERPHONE");
     LGD_DELIVERYINFO        = request.getParameter("LGD_DELIVERYINFO");
 
-    String CST_PLATFORM         = request.getParameter("CST_PLATFORM");                 //LG유플러스 결제서비스 선택(test:테스트, service:서비스)
+    //String CST_PLATFORM         = request.getParameter("CST_PLATFORM");                 //LG유플러스 결제서비스 선택(test:테스트, service:서비스)
+    String CST_PLATFORM         = "test";                 //LG유플러스 결제서비스 선택(test:테스트, service:서비스)
     
     String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
     

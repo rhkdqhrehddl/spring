@@ -6,7 +6,6 @@
 <%@ page import="lgdacom.XPayClient.XPayClient"%>
 
 <%
-	request.setCharacterEncoding("utf-8");
     /*
      * [상점 결제결과처리(DB) 페이지]
      *

@@ -41,7 +41,7 @@
 	String LGD_WINDOW_TYPE         	= request.getParameter("LGD_WINDOW_TYPE");           	// 인증창 호출 방식 (수정불가) 	
 	
 	//LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
-	String LGD_RETURNURL			= "http://" + local_ip + ":8081/spring_war/PG/MobileAuthOnly/returnurl.do";		// FOR MANUAL
+	String LGD_RETURNURL			= "http://" + local_ip + ":8081/spring_war/PG/MobileAuthOnly/returnurl_M.do";		// FOR MANUAL
 
 	   
 	/*

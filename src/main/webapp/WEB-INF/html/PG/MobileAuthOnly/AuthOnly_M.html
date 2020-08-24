@@ -1,69 +1,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>LGÀ¯ÇÃ·¯½º º»ÀÎÀÎÁõ ÅëÇÕÃ¢</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LGìœ í”ŒëŸ¬ìŠ¤ ë³¸ì¸ì¸ì¦ í†µí•©ì°½</title>
 <script type="text/javascript">
 </script>
 </head>
 <body>
-<form method="post" name ="LGD_PAYINFO" id="LGD_PAYINFO" action="AuthOnlyReq.jsp">
+<form method="post" name ="LGD_PAYINFO" id="LGD_PAYINFO" action="AuthOnlyReq.do">
 	<div>
 		<table>	
             <tr>
-                <td>»óÁ¡¾ÆÀÌµð(t¸¦ Á¦¿ÜÇÑ ¾ÆÀÌµð) </td>
+                <td>ìƒì ì•„ì´ë””(të¥¼ ì œì™¸í•œ ì•„ì´ë””) </td>
                 <td><input type="text" name="CST_MID" id="CST_MID" value=""/></td>
             </tr>
             <tr>
-                <td>¼­ºñ½º,Å×½ºÆ® </td>
+                <td>ì„œë¹„ìŠ¤,í…ŒìŠ¤íŠ¸ </td>
                 <td><input type="text" name="CST_PLATFORM" id="CST_PLATFORM" value="test"/></td>
             </tr>
             <tr>
-                <td>»ý³â¿ùÀÏ</td>
-                <td><input type="text" name="LGD_BUYERSSN" value=""/> &nbsp;&nbsp; *ÈÞ´ëÆù ´ëÃ¼ ÀÎÁõ½Ã 000000 À¸·Î ³Ñ±æ°Í</td>
+                <td>ìƒë…„ì›”ì¼</td>
+                <td><input type="text" name="LGD_BUYERSSN" value=""/> &nbsp;&nbsp; *íœ´ëŒ€í° ëŒ€ì²´ ì¸ì¦ì‹œ 000000 ìœ¼ë¡œ ë„˜ê¸¸ê²ƒ</td>
             </tr>
             <tr>
-                <td>¼º¸í</td>
+                <td>ì„±ëª…</td>
                 <td><input type="text" name="LGD_BUYER" value=""/></td>
             </tr>
             <tr>
-                <td>ÀÌ¿ë°¡´É ÀÎÁõ¼ö´Ü</td>
+                <td>ì´ìš©ê°€ëŠ¥ ì¸ì¦ìˆ˜ë‹¨</td>
                 <td>
 					<select id="LGD_CUSTOM_USABLEPAY" name="LGD_CUSTOM_USABLEPAY">
-						<option value="ASC001" selected="selected">½Å¿ëÄ«µåÀÎÁõ</option>		
-						<option value="ASC004" >°èÁÂÀÎÁõ</option>		
-						<option value="ASC007" >ÈÞ´ëÆù´ëÃ¼ÀÎÁõ</option>	
+						<option value="ASC001" selected="selected">ì‹ ìš©ì¹´ë“œì¸ì¦</option>		
+						<option value="ASC004" >ê³„ì¢Œì¸ì¦</option>		
+						<option value="ASC007" >íœ´ëŒ€í°ëŒ€ì²´ì¸ì¦</option>	
 					</select>
                 </td>
             </tr>
             <tr>
-                <td>Å¸ÀÓ½ºÅÆÇÁ</td>
+                <td>íƒ€ìž„ìŠ¤íƒ¬í”„</td>
                 <td><input type="text" name="LGD_TIMESTAMP" value="201508251111"/></td>
             </tr>
             <tr>
-                <td>½Å¿ëÆò°¡»ç °íÀ¯ ÄÚµå</td>
+                <td>ì‹ ìš©í‰ê°€ì‚¬ ê³ ìœ  ì½”ë“œ</td>
                 <td><input type="text" name="LGD_MOBILE_SUBAUTH_SITECD" value="123456789abc"/></td>
             </tr>
             <tr>
-                <td>½Ç¸íÈ®ÀÎ¿©ºÎ</td>
+                <td>ì‹¤ëª…í™•ì¸ì—¬ë¶€</td>
                 <td>
 					<select name="LGD_NAMECHECKYN">
-						<option value="N">½Ç¸íÈ®ÀÎ¾ÈÇÔ</option>
-						<option value="Y">½Ç¸íÈ®ÀÎÇÔ</option>
+						<option value="N">ì‹¤ëª…í™•ì¸ì•ˆí•¨</option>
+						<option value="Y">ì‹¤ëª…í™•ì¸í•¨</option>
 					</select>
 				</td>
             </tr>
             <tr>
-                <td>ÈÞ´ëÆùº»ÀÎÈ®ÀÎSMS¹ß¼Û¿©ºÎ</td>
+                <td>íœ´ëŒ€í°ë³¸ì¸í™•ì¸SMSë°œì†¡ì—¬ë¶€</td>
                 <td>
 					<select name="LGD_HOLDCHECKYN">
-						<option value="Y">SMS¹ß¼ÛÇÔ</option>
-						<option value="N">SMS¹ß¼Û¾ÈÇÔ</option>
+						<option value="Y">SMSë°œì†¡í•¨</option>
+						<option value="N">SMSë°œì†¡ì•ˆí•¨</option>
 					</select>
 				</td>
             </tr>
             <tr>
-                <td>°áÁ¦Ã¢ È£Ãâ ¹æ½Ä </td>
+                <td>ê²°ì œì°½ í˜¸ì¶œ ë°©ì‹ </td>
                 <td>
                 	<select name="LGD_WINDOW_TYPE" id="LGD_WINDOW_TYPE">
 						<option value="submit">submit</option>
@@ -71,16 +71,16 @@
 				</td>
             </tr>
             <tr>
-				<!--¿äÃ»ÀÎÁõÅ¸ÀÔ (ÀÚµ¿Ã¤¿ò) -->
+				<!--ìš”ì²­ì¸ì¦íƒ€ìž… (ìžë™ì±„ì›€) -->
                 <td><input type="hidden" name="LGD_PAYTYPE" id="LGD_PAYTYPE" value=""/></td>
             </tr>
             <tr>
-				<!-- LGÀ¯ÇÃ·¯½ºÀ¸·ÎºÎÅÍ ºÎ¿©¹ÞÀº ÀÎÁõÅ° (ÀÚµ¿Ã¤¿ò) -->
+				<!-- LGìœ í”ŒëŸ¬ìŠ¤ìœ¼ë¡œë¶€í„° ë¶€ì—¬ë°›ì€ ì¸ì¦í‚¤ (ìžë™ì±„ì›€) -->
                 <td><input type="hidden" name="LGD_AUTHONLYKEY" id="LGD_AUTHONLYKEY" value=""/></td>
             </tr>													
             <tr>
                 <td>
-                <input type="submit" value="È®ÀÎ" /><br/>
+                <input type="submit" value="í™•ì¸" /><br/>
                 </td>
             </tr>
         </table>

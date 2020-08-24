@@ -23,4 +23,11 @@ public class PGController {
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/MobileAuthOnly/*.do", method = RequestMethod.POST)
+	public String MobileAuthOnly(HttpServletRequest request) {
+		System.out.print("");
+		String[] aa = request.getServletPath().split("[.]");
+		return request.getServletPath().split("[.]")[0];
+	}
 }

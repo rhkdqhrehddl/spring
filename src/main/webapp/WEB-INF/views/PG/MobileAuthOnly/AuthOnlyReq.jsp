@@ -112,6 +112,8 @@
 	payReqMap.put("LGD_RESPMSG"			, "" );
 	payReqMap.put("LGD_AUTHONLYKEY"		, "" );
 	payReqMap.put("LGD_PAYTYPE"			, "" );
+	
+	payReqMap.put("LGD_MOBILE_AUTH_FIRST"  				, "1" );
 
 	payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
     payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );

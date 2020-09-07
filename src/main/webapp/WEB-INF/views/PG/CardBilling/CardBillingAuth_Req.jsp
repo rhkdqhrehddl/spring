@@ -36,7 +36,7 @@
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
- 	String LGD_RETURNURL			= "http://" + local_ip + ":8081/spring_war/PG/MobileAuthOnly/returnurl_M.do";		// FOR MANUAL
+ 	String LGD_RETURNURL			= "http://" + local_ip + ":8081/spring_war/PG/CardBilling/returnurl.do";		// FOR MANUAL
 
 	Map payReqMap = new HashMap();
 		 
@@ -52,7 +52,7 @@
 	payReqMap.put("LGD_RETURNURL"			, LGD_RETURNURL );					// 리턴URL
 	payReqMap.put("LGD_PAYWINDOWTYPE"		, "CardBillingAuth");				// 인증요청구분 (수정불가)
 	payReqMap.put("LGD_VERSION"				, "JSP_Non-ActiveX_CardBilling");	// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.
-	//payReqMap.put("LGD_DOMAIN_URL"			, "xpayvvip" );	<= 주석 처리 후 IE에서 정상동작 (추후에 추가된 파라미터)		
+	payReqMap.put("LGD_DOMAIN_URL"			, "xpayvvip" );	//<= 주석 처리 후 IE에서 정상동작 (추후에 추가된 파라미터)		
 	
 	/*Return URL에서 인증 결과 수신 시 셋팅될 파라미터 입니다.*/
 	payReqMap.put("LGD_RESPCODE"			, "");

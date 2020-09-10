@@ -199,7 +199,7 @@
      /* 가상계좌/계좌이체 공통 파라미터*/
      //payReqMap.put("LGD_CASHRECEIPTYN"          , "Y" );
      payReqMap.put("LGD_DEFAULTCASHRECEIPTUSE", "2");
-     payReqMap.put("LGD_BUYERPHONE", "01020202020");
+     payReqMap.put("LGD_BUYERPHONE", "01028237618");
     // payReqMap.put("LGD_AUTOCOPYYN_CASHCARDNUM", )
      
      /* 계좌이체 파라미터 */    

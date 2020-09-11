@@ -30,17 +30,17 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-<!-- 	<filer>
+	<filer>
 		<filter-name>setCharEncoding</filter-name>
-		<filter-class>filters.SetCharacterEncodingFilter</filter-class>
+		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
+			<param-value>utf-8</param-value>
 		</init-param>
 	</filer>
 	<filter-mapping>
 		<filter-name>setCharEncoding</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> -->
+	</filter-mapping>
 
 </web-app>

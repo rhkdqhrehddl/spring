@@ -46,12 +46,12 @@
 	/*
 	* 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다.
  	*/
-	String LGD_CASNOTEURL		= "http://" + local_ip + ":8081/spring_war/PG/SmartXPay/cas_noteurl.do";
+	String LGD_CASNOTEURL		= "http://" + local_ip + ":8081/PG/SmartXPay/cas_noteurl.do";
 
     /*
    	* LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
    	*/
-	String LGD_RETURNURL		= "http://" + local_ip + ":8081/spring_war/PG/SmartXPay/returnurl.do";
+	String LGD_RETURNURL		= "http://" + local_ip + ":8081/PG/SmartXPay/returnurl.do";
 	
 	/*
 	* ISP 카드결제 연동을 위한 파라미터(필수)

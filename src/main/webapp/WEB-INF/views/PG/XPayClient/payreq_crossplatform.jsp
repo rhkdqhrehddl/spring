@@ -23,6 +23,10 @@
 		configPath = "/lgdacom";
  	}
  	
+ 	String sessionid = request.getSession().getId();
+
+ 	response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; Path=/; Secure; SameSite=None");
+ 	
     /*
      * 1. 기본결제 인증요청 정보 변경
      *

@@ -19,7 +19,6 @@
 	 *
 	 * 기본정보를 변경하여 주시기 바랍니다.(파라미터 전달시 POST를 사용하세요)
 	 */
-	String local_ip = request.getServerName();
 	String CST_PLATFORM 			= request.getParameter("CST_PLATFORM");                 // LG유플러스 결제서비스 선택(test:테스트, service:서비스)
 	String CST_MID              	= request.getParameter("CST_MID");                    	// LG유플러스으로 부터 발급받으신 상점아이디를 입력하세요.
 																							// 테스트 아이디는 't'를 반드시 제외하고 입력하세요.(CST_MID: LGD_MID를 설정하기 위한 상점아이디)
@@ -41,7 +40,7 @@
 	String LGD_WINDOW_TYPE         	= request.getParameter("LGD_WINDOW_TYPE");           	// 인증창 호출 방식 (수정불가) 	
 	
 	//LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
-	String LGD_RETURNURL			= "http://" + local_ip + ":8081/PG/MobileAuthOnly/returnurl_M.do";		// FOR MANUAL
+	String LGD_RETURNURL			= "https://rhkdqhrehddl.tk/PG/MobileAuthOnly/returnurl_M.do";		// FOR MANUAL
 
 	   
 	/*

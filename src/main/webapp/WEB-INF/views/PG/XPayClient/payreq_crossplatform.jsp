@@ -175,7 +175,6 @@
      payReqMap.put("LGD_TAXFREEAMOUNT"				, LGD_TAXFREEAMOUNT );
  	 //payReqMap.put("LGD_DIVIDE_INFO", 				LGD_DIVIDE_INFO );			//분할정산 관련 파라미터
  	 payReqMap.put("LGD_RETURN_MERT_CUSTOM_PARAM"	, "Y");							//임의의 파라미터를 returnurl로 전달 가능
-     payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
      //payReqMap.put("LGD_DISABLE_AGREE"				, "Y");
      /* 신용카드 결제 파라미터 */
      

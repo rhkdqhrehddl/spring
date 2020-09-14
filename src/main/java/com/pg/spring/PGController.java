@@ -37,4 +37,11 @@ public class PGController {
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/SmartXPayBilling/*.do", method = RequestMethod.POST)
+	public String SmartXPayBilling(HttpServletRequest request) {
+		System.out.print("");
+		String[] aa = request.getServletPath().split("[.]");
+		return request.getServletPath().split("[.]")[0];
+	}
 }

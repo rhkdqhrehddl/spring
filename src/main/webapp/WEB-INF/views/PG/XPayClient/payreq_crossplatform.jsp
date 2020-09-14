@@ -227,7 +227,7 @@
 <title>통합LG유플러스 전자결서비스 결제테스트</title>
 <!-- test일 경우 -->
 <script language="javascript" src="https://pretest.uplus.co.kr:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
-<script language="JavaScript" src="https://pgweb.tosspayments.com:7085/WEB_SERVER/js/receipt_link.js"></script>
+<script language="JavaScript" src="http://pgweb.tosspayments.com:7085/WEB_SERVER/js/receipt_link.js"></script>
 <!-- 
   service일 경우 아래 URL을 사용 
 <script language="javascript" src="https://xpayvvip.uplus.co.kr/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>

@@ -14,6 +14,10 @@
 	 * 샘플페이지에서는 기본 파라미터만 예시되어 있으며, 별도로 필요하신 파라미터는 연동메뉴얼을 참고하시어 추가 하시기 바랍니다.
 	 */
 	
+	 String sessionid = request.getSession().getId();
+
+ 	response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; Path=/; Secure; SameSite=None");
+	 
 	/*
 	 * 1. 기본 인증요청 정보 변경
 	 *

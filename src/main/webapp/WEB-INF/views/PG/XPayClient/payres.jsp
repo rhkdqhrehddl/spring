@@ -4,7 +4,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-	<script language="JavaScript" src="https://pgweb.uplus.co.kr:7085/WEB_SERVER/js/receipt_link.js"></script>
+	<script language="JavaScript" src="https://pgweb.tosspayments.com/WEB_SERVER/js/receipt_link.js"></script>
 </head>
 <body>
 	<%

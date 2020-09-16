@@ -58,4 +58,10 @@ public class PGController {
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/MobileNoSession/*.do", method = RequestMethod.POST)
+	public String MobileNoSession(HttpServletRequest request) {
+		String[] aa = request.getServletPath().split("[.]");
+		return request.getServletPath().split("[.]")[0];
+	}
 }

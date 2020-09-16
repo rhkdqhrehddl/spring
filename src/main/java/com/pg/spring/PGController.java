@@ -12,35 +12,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PGController {	
 	@RequestMapping(value = "/XPayClient/*.do", method = RequestMethod.POST)
 	public String XPayClient(HttpServletRequest request) {
-		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
 
 	@RequestMapping(value = "/SmartXPay/*.do", method = RequestMethod.POST)
 	public String SmartXPay(HttpServletRequest request) {
-		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
 	
 	@RequestMapping(value = "/MobileAuthOnly/*.do", method = RequestMethod.POST)
 	public String MobileAuthOnly(HttpServletRequest request) {
-		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
 	
 	@RequestMapping(value = "/CardBilling/*.do", method = RequestMethod.POST)
 	public String CardBilling(HttpServletRequest request) {
-		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
 	
 	@RequestMapping(value = "/SmartXPayBilling/*.do", method = RequestMethod.POST)
 	public String SmartXPayBilling(HttpServletRequest request) {
-		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
@@ -48,14 +43,18 @@ public class PGController {
 	
 	@RequestMapping(value = "/SmartXPayEasyPay/*.do", method = RequestMethod.POST)
 	public String SmartXPayEasyPay(HttpServletRequest request) {
-		System.out.print("");
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
 	
 	@RequestMapping(value = "/CardMobileXPay/*.do", method = RequestMethod.POST)
 	public String CardMobileXPay(HttpServletRequest request) {
-		System.out.print("");
+		String[] aa = request.getServletPath().split("[.]");
+		return request.getServletPath().split("[.]")[0];
+	}
+	
+	@RequestMapping(value = "**/cancel_url.do", method = RequestMethod.GET)
+	public String CancelURL(HttpServletRequest request) {
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}

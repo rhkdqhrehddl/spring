@@ -30,8 +30,8 @@
      *************************************************
      */
     
-    String CST_PLATFORM                 = request.getParameter("CST_PLATFORM");
-    String CST_MID                      = request.getParameter("CST_MID");
+    String CST_PLATFORM                 = request.getAttribute("CST_PLATFORM").toString();
+    String CST_MID                      = request.getAttribute("CST_MID").toString();
     String LGD_MID                      = ("test".equals(CST_PLATFORM.trim())?"t":"")+CST_MID;
     String LGD_PAYKEY                   = request.getParameter("LGD_PAYKEY");
 

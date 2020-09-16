@@ -1,5 +1,7 @@
 package com.pg.spring;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -55,7 +57,8 @@ public class PGController {
 	}
 	
 	@RequestMapping(value = "/MobileNoSession/*.do", method = RequestMethod.POST)
-	public String MobileNoSession(Model model, HttpServletRequest request) {
+	public String MobileNoSession(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		String path = request.getServletPath().split("[.]")[0];
 		
 		if(path.contains("payreq")) {

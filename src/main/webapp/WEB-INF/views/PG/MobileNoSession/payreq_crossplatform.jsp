@@ -233,6 +233,10 @@
 <input type="hidden" id="LGD_KVPMISPAUTOAPPYN"		name="LGD_KVPMISPAUTOAPPYN"			value="<%=LGD_KVPMISPAUTOAPPYN %>"/>
 <input type="hidden" id="LGD_MTRANSFERAUTOAPPYN"	name="LGD_MTRANSFERAUTOAPPYN"		value="<%=LGD_MTRANSFERAUTOAPPYN %>"/>
 
+<input type="hidden" id="LGD_ENCODING"				name="LGD_ENCODING"					value="UTF-8"/>
+<input type="hidden" id="LGD_ENCODING_RETURNURL"	name="LGD_ENCODING_RETURNURL"		value="UTF-8"/>
+<input type="hidden" id="LGD_ENCODING_NOTEURL"		name="LGD_ENCODING_NOTEURL"			value="UTF-8"/>
+     
 
 <input type="hidden" id="LGD_RESPCODE"				name="LGD_RESPCODE"					value=""/>
 <input type="hidden" id="LGD_RESPMSG"				name="LGD_RESPMSG"					value=""/>

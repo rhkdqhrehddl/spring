@@ -64,8 +64,6 @@ public class PGController {
 		} else if(path.contains("payres")) {
 			model.addAttribute("CST_PLATFORM", mb_noSession_cst_platform);
 			model.addAttribute("CST_MID", mb_noSession_cst_mid);
-			mb_noSession_cst_platform = null;
-			mb_noSession_cst_mid = null;
 		}
 		return path;
 	}

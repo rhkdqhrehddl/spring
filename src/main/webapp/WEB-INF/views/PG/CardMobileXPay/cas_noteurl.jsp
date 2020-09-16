@@ -18,7 +18,7 @@
     String LGD_MID = "";                // 상점아이디 
     String LGD_OID = "";                // 주문번호
     String LGD_AMOUNT = "";             // 거래금액
-    String LGD_TID = "";                // LG유플러스에서 부여한 거래번호
+    String LGD_TID = "";                // 토스페이먼츠에서 부여한 거래번호
     String LGD_PAYTYPE = "";            // 결제수단코드
     String LGD_PAYDATE = "";            // 거래일시(승인일시/이체일시)
     String LGD_HASHDATA = "";           // 해쉬값
@@ -87,17 +87,17 @@
     LGD_DELIVERYINFO        = request.getParameter("LGD_DELIVERYINFO");
     
     //String CST_PLATFORM         = request.getParameter("CST_PLATFORM");                 //LG유플러스 결제서비스 선택(test:테스트, service:서비스) [하드코딩 진행]  
-    String CST_PLATFORM = "test";	
-    		
-    String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
+    String CST_PLATFORM = "test";	                 //토스페이먼츠 결제서비스 선택(test:테스트, service:서비스)
+    
+    String configPath = "C:/lgdacom";  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
     
     if(System.getProperty("os.name").equals("Linux")){
 		configPath = "/lgdacom";
  	}
-
+    
     /*
      * hashdata 검증을 위한 mertkey는 상점관리자 -> 계약정보 -> 상점정보관리에서 확인하실수 있습니다. 
-     * LG유플러스에서 발급한 상점키로 반드시변경해 주시기 바랍니다.
+     * 토스페이먼츠에서 발급한 상점키로 반드시변경해 주시기 바랍니다.
      */  
      String LGD_HASHDATA2 = "";
      XPayClient xpay = null;
@@ -110,7 +110,7 @@
     	 
      } catch(Exception e) {
     	 e.printStackTrace();
-    	out.println("LG유플러스 제공 API를 사용할 수 없습니다. 환경파일 설정을 확인해 주시기 바랍니다. ");
+    	out.println("토스페이먼츠 제공 API를 사용할 수 없습니다. 환경파일 설정을 확인해 주시기 바랍니다. ");
  		out.println(""+e.getMessage());    	
  		return;
      } finally {

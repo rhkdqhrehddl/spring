@@ -52,4 +52,11 @@ public class PGController {
 		String[] aa = request.getServletPath().split("[.]");
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/CardMobileXPay/*.do", method = RequestMethod.POST)
+	public String CardMobileXPay(HttpServletRequest request) {
+		System.out.print("");
+		String[] aa = request.getServletPath().split("[.]");
+		return request.getServletPath().split("[.]")[0];
+	}
 }

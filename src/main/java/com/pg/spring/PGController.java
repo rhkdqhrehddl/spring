@@ -70,4 +70,9 @@ public class PGController {
 		}
 		return path;
 	}
+	
+	@RequestMapping(value = "/AuthOnly/*.do", method = RequestMethod.POST)
+	public String AuthOnly(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

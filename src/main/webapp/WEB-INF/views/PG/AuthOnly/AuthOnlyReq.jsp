@@ -111,7 +111,9 @@
 	payReqMap.put("LGD_WINDOW_TYPE"             , LGD_WINDOW_TYPE );                   	// 본인확인창 호출 방식 (수정불가)
 	payReqMap.put("LGD_RETURNURL"   			, LGD_RETURNURL );      			   	// 응답수신페이지
 	payReqMap.put("LGD_VERSION"  				, "JSP_NON-ActiveX_AuthOnly" );			// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.
-	payReqMap.put("LGD_DOMAIN_URL"				, "xpayvvip" );	 
+	payReqMap.put("LGD_DOMAIN_URL"				, "xpayvvip" );
+	payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
+    payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );	 
 	
 	/*Return URL에서 인증 결과 수신 시 셋팅될 파라미터 입니다.*/
 	payReqMap.put("LGD_RESPCODE"		, "" );

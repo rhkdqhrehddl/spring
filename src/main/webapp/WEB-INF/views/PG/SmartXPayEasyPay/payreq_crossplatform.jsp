@@ -30,6 +30,7 @@
 	 *
 	 * 기본정보를 변경하여 주시기 바랍니다.(파라미터 전달시 POST를 사용하세요)
 	 */
+	String serverName = request.getServerName();
 	String CST_PLATFORM				= request.getParameter("CST_PLATFORM");					//LG유플러스 결제서비스 선택(test:테스트, service:서비스)
 	String CST_MID					= request.getParameter("CST_MID");						//LG유플러스로 부터 발급받으신 상점아이디를 입력하세요.
 	String LGD_MID					= ("test".equals(CST_PLATFORM.trim())?"t":"")+CST_MID; 	//테스트 아이디는 't'를 제외하고 입력하세요.
@@ -53,13 +54,13 @@
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다. 
      * 인증결과 수신페이지 (상점정의에 맞게 변경해주세요)
      */  
-     String LGD_CASNOTEURL		= "https://rhkdqhrehddl.tk/PG/SmartXPayEasyPay/cas_noteurl.do";  
+     String LGD_CASNOTEURL		= "https://" + serverName + "/PG/SmartXPayEasyPay/cas_noteurl.do";  
 	
 	/*
 	 * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
 	 * 인증결과 수신페이지 (상점정의에 맞게 변경해주세요)
 	 */    
-	 String LGD_RETURNURL		= "https://rhkdqhrehddl.tk/PG/SmartXPayEasyPay/returnurl.do";     
+	 String LGD_RETURNURL		= "https://" + serverName + "/PG/SmartXPayEasyPay/returnurl.do";     
 
 	
 	

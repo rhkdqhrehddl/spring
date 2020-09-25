@@ -32,7 +32,6 @@ public class TossPGController {
 			HttpClient client = HttpClientBuilder.create().build(); // HttpClient 생성
 			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey); //GET 메소드 URL 생성
 			
-			//getRequest.addHeader("x-api-key", RestTestCommon.API_KEY); //KEY 입력
 			postRequest.addHeader("Authorization", secretKey);
 			postRequest.addHeader("Content-Type", "application/json");
 			
@@ -42,7 +41,7 @@ public class TossPGController {
 						
 			HttpResponse response = client.execute(postRequest);
 
-			//Response 출력
+			//Response
 			if (response.getStatusLine().getStatusCode() == 200) {
 				ResponseHandler<String> handler = new BasicResponseHandler();
 				String body = handler.handleResponse(response);

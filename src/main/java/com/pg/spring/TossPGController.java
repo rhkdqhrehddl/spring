@@ -29,8 +29,8 @@ public class TossPGController {
 			String secretKey = ":" + "test_ak_ODnyRpQWGrNDAXmpdW23Kwv1M9EN";
 			secretKey = new String(encoder.encode(secretKey.getBytes()));
 			
-			HttpClient client = HttpClientBuilder.create().build(); // HttpClient 持失
-			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey); //GET 五社球 URL 持失
+			HttpClient client = HttpClientBuilder.create().build(); 
+			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey); 
 			
 			postRequest.addHeader("Authorization", secretKey);
 			postRequest.addHeader("Content-Type", "application/json");

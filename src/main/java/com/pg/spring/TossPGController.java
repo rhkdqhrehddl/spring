@@ -28,13 +28,13 @@ public class TossPGController {
 			PayRequest payRequest) {
 		try {
 			Encoder encoder = java.util.Base64.getEncoder();
-			String secretKey = ":" + "test_ak_ODnyRpQWGrNDAXmpdW23Kwv1M9EN";
+			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG";
 			secretKey = new String(encoder.encode(secretKey.getBytes()));
 			
 			HttpClient client = HttpClientBuilder.create().build(); 
 			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey); 
 			
-			postRequest.addHeader("Authorization", secretKey);
+			postRequest.addHeader("Authorization", "Basic "+ secretKey);
 			postRequest.addHeader("Content-Type", "application/json");
 			
 			String jsonStr = new GsonBuilder().create().toJson(payRequest);

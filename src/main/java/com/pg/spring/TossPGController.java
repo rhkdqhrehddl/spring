@@ -11,7 +11,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +24,7 @@ import com.google.gson.GsonBuilder;
 @RequestMapping("/TossPG")
 public class TossPGController {
 	@RequestMapping(value = "**/success.do", method = RequestMethod.GET)
-	public String success(@RequestParam (value="paymentKey", required=true) String paymentKey, 
+	public String success(Model model, @RequestParam (value="paymentKey", required=true) String paymentKey, 
 			PayRequest payRequest) {
 		try {
 			Encoder encoder = java.util.Base64.getEncoder();
@@ -46,14 +48,16 @@ public class TossPGController {
 				ResponseHandler<String> handler = new BasicResponseHandler();
 				String body = handler.handleResponse(response);
 				System.out.println(body);
+				model.addAttribute("result", EntityUtils.toString(response.getEntity(), "UTF-8"));
 			} else {
 				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
+				model.addAttribute("result", response.getStatusLine().getStatusCode() + response.getStatusLine().getReasonPhrase());
 			}
 
 		} catch (Exception e){
 			System.err.println(e.toString());
 		}
 		
-		return "dd";
+		return "/TossPG/success";
 	}
 }

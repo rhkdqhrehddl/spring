@@ -163,6 +163,7 @@
 	*/
 	payReqMap.put("LGD_MTRANSFERWAPURL"			, LGD_MTRANSFERWAPURL );	
 	payReqMap.put("LGD_MTRANSFERCANCELURL"		, LGD_MTRANSFERCANCELURL );
+	payReqMap.put("LGD_PAGE_TYPE"				, "cs_m_payment");
 	
 	/*
 	****************************************************

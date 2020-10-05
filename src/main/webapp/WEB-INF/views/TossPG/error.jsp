@@ -19,6 +19,9 @@
 			case 2:
 				out.println("\t 취소실패 <br>");
 				break;
+			case 3:
+				out.println("\t 조회실패 <br>");
+				break;
 			default:
 				out.println("\t 결제실패 <br>");
 				break;

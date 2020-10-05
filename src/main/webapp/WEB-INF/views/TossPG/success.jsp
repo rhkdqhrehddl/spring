@@ -20,6 +20,9 @@
 			case 2:
 				flagWord = "취소";
 				break;
+			case 3:
+				flagWord = "조회";
+				break;
 			default:
 				flagWord = "결제";
 				break;

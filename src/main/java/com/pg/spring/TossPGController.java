@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
@@ -93,6 +94,47 @@ public class TossPGController {
 			HttpResponse response = client.execute(postRequest);
 			model.addAttribute("resp_code", response.getStatusLine().getStatusCode());
 			model.addAttribute("requestFlag", 2);
+
+			//Response
+			if (response.getStatusLine().getStatusCode() == 200) {
+				ResponseHandler<String> handler = new BasicResponseHandler();
+				ObjectMapper mapper = new ObjectMapper();
+				
+				String body = handler.handleResponse(response);
+				System.out.println(body);
+
+				Map<String, String> map = mapper.readValue(body, Map.class);
+				model.addAttribute("result", map);
+			} else {
+				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
+				model.addAttribute("err_msg", response.getStatusLine().getReasonPhrase());
+			}
+
+		} catch (Exception e){
+			model.addAttribute("err_msg", e.toString());
+			return "/TossPG/error";
+		}
+		
+		return "/TossPG/success";
+	}
+	
+	@RequestMapping(value = "**/Search.do", method = RequestMethod.GET)
+	public String search(Model model, @RequestParam (value="paymentKey", required=true) String paymentKey) {
+		try {
+			Encoder encoder = java.util.Base64.getEncoder();
+			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
+			secretKey = new String(encoder.encode(secretKey.getBytes()));
+			
+			HttpClient client = HttpClientBuilder.create().build(); 
+			HttpGet getRequest = new HttpGet("https://api.tosspayments.com/v1/payments/" + paymentKey); 
+			
+			getRequest.setHeader("Accept", "application/json;charset=UTF-8");
+			getRequest.setHeader("Authorization", "Basic "+ secretKey);
+			getRequest.setHeader("Content-Type", "application/json;charset=UTF-8");
+						
+			HttpResponse response = client.execute(getRequest);
+			model.addAttribute("resp_code", response.getStatusLine().getStatusCode());
+			model.addAttribute("requestFlag", 3);
 
 			//Response
 			if (response.getStatusLine().getStatusCode() == 200) {

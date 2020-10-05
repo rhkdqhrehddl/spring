@@ -10,8 +10,23 @@
 	<%
 		request.setCharacterEncoding("utf-8");
 	
+		int requestFlag = Integer.parseInt(request.getAttribute("requestFlag").toString());
+		String flagWord = "";
+		
+		switch(requestFlag){
+			case 1:
+				flagWord = "결제";
+				break;
+			case 2:
+				flagWord = "취소";
+				break;
+			default:
+				flagWord = "결제";
+				break;
+		}
+	
 		if(request.getAttribute("resp_code").toString().equals("200")){
-			out.println("\t 결제성공 <br>");	
+			out.println("\t " + flagWord + "성공 <br>");	
 			
 			Map resultMap = (Map)request.getAttribute("result");
 			for (Iterator i = resultMap.keySet().iterator(); i.hasNext();) {
@@ -19,7 +34,7 @@
 				out.println("\t" + key + " = " + resultMap.get(key) + "<br>");
 			}
 		} else {
-			out.println("\t 결제실패 <br>");
+			out.println("\t " + flagWord + "실패 <br>");
 			out.println("\t response code = " + request.getAttribute("resp_code").toString() + "<br>");
 			out.println("\t error MSG = " + request.getAttribute("err_msg").toString() + "<br>");
 		}

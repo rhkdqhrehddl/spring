@@ -44,6 +44,55 @@ public class TossPGController {
 						
 			HttpResponse response = client.execute(postRequest);
 			model.addAttribute("resp_code", response.getStatusLine().getStatusCode());
+			model.addAttribute("requestFlag", 1);
+
+			//Response
+			if (response.getStatusLine().getStatusCode() == 200) {
+				ResponseHandler<String> handler = new BasicResponseHandler();
+				ObjectMapper mapper = new ObjectMapper();
+				
+				String body = handler.handleResponse(response);
+				System.out.println(body);
+
+				Map<String, String> map = mapper.readValue(body, Map.class);
+				model.addAttribute("result", map);
+			} else {
+				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
+				model.addAttribute("err_msg", response.getStatusLine().getReasonPhrase());
+			}
+
+		} catch (Exception e){
+			model.addAttribute("err_msg", e.toString());
+			return "/TossPG/error";
+		}
+		
+		return "/TossPG/success";
+	}
+	
+	
+	
+	@RequestMapping(value = "**/Cancel.do", method = RequestMethod.POST)
+	public String cancel(Model model, @RequestParam (value="paymentKey", required=true) String paymentKey, 
+			CancelRequest cancelRequest) {
+		try {
+			Encoder encoder = java.util.Base64.getEncoder();
+			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
+			secretKey = new String(encoder.encode(secretKey.getBytes()));
+			
+			HttpClient client = HttpClientBuilder.create().build(); 
+			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey + "/cancel"); 
+			
+			postRequest.setHeader("Accept", "application/json;charset=UTF-8");
+			postRequest.setHeader("Authorization", "Basic "+ secretKey);
+			postRequest.setHeader("Content-Type", "application/json;charset=UTF-8");
+			
+			String jsonStr = new GsonBuilder().create().toJson(cancelRequest);
+			
+			postRequest.setEntity(new StringEntity(jsonStr));
+						
+			HttpResponse response = client.execute(postRequest);
+			model.addAttribute("resp_code", response.getStatusLine().getStatusCode());
+			model.addAttribute("requestFlag", 2);
 
 			//Response
 			if (response.getStatusLine().getStatusCode() == 200) {

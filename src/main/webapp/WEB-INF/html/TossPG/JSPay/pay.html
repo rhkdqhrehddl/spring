@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+
+
+function getParams(name) {  
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+   var authOrderId    = getParams('orderId');
+   var authPaymentKey = getParams('paymentKey');
+   var authAmount     = getParams('amount');
+   var PayURL         = "https://api.tosspayments.com/v1/payments/"+authPaymentKey;
+   var RefundURL      = "https://api.tosspayments.com/v1/payments/"+authPaymentKey+"/cancel"
+   var apikey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG";                    
+   var encKey = btoa(apikey+":");                                          // api 키 뒤에 콜론을 붙여서 base64 인코딩
+   var response = "";                                                      // 응답 데이터를 담을 변수 선언 
+
+
+
+
+function pay() {
+	
+  var payJson = {   
+			amount: authAmount,
+			orderId: authOrderId
+  };
+
+	
+  var params =JSON.stringify(payJson);	
+  var xhttp = new XMLHttpRequest();                                       // 데이터 전송 객체 생성
+  
+ 
+  xhttp.open("POST", PayURL,true);                                        // 데이터 전송 방식 및 URL 설정
+  xhttp.setRequestHeader("Authorization", "Basic "+ encKey);              // 헤더에 인증 및 BASE64 인코딩한 키 값을 세팅]
+  xhttp.setRequestHeader("Content-Type", "application/json");             // 헤더에 JASON 타입의 데이터 임을 명시함
+  xhttp.send(params);                                                     // 요청 파라미터 세팅 및 전달
+
+  
+  xhttp.onload = function() {                                             
+	  
+	 if (xhttp.Status == 201 || xhttp.status == 200) {    	
+         response = JSON.parse(xhttp.responseText);
+	     document.getElementById("result").innerHTML = xhttp.responseText; 
+     	 document.getElementById("cancelAmount").value = response['totalAmount'];
+	     alert ("결제성공");
+	
+	  }else{	
+	    	alert ("오류발생"+xhttp.responseText);
+	        }
+   }
+};
+
+
+
+function refund() {
+
+	var refundJson = {
+			requesterType: document.getElementById("requesterType").value,
+			cancelReason : document.getElementById("cancelReason").value,
+			cancelAmount : document.getElementById("cancelAmount").value 
+	    };
+
+		  
+    var params =JSON.stringify(refundJson)  
+    var xhttp = new XMLHttpRequest();
+
+	    xhttp.open("POST", RefundURL,true);
+	    xhttp.setRequestHeader("Authorization", "Basic "+ encKey);
+		xhttp.setRequestHeader("Content-Type", "application/json");
+		xhttp.send(params);
+
+		  
+		  xhttp.onload = function() {
+			  
+			    if (xhttp.Status == 201 || xhttp.status == 200) {    	
+
+				  response = JSON.parse(xhttp.responseText);
+				  
+				 document.getElementById("result2").innerHTML = xhttp.responseText;
+				 
+				 alert ("취소성공");
+				  
+			    }else{
+
+			    	
+			    	alert ("오류발생"+xhttp.responseText);
+			    }
+		  }
+};
+
+	  
+</script>
+
+
+</head>
+<title>자바스크립트 버전</title>
+
+
+
+<body onload="pay();">
+
+------  결제 응답 코드 ----------------------
+<br>
+<p id="result"></p>
+
+<br>
+--------------취소 응답 코드------------------
+
+<p id="result2"></p>
+
+
+<table>
+	
+	<tr>
+	  <td> 취소 요청자</td>
+	  <td> <input type="text" name="requesterType" id="requesterType" value="CUSTOMER"></td>
+	</tr>
+	
+	<tr>
+	  <td> 취소 사유 </td>
+	  <td> <input type="text" name="cancelReason" id="cancelReason" value="단순 변심"></td>
+	</tr>	
+	
+	<tr>
+	  <td> 취소 금액</td>
+	  <td> <input type="text" name="cancelAmount" id="cancelAmount" value=""></td>
+	</tr>	
+	<tr>
+	  <td> </td>
+	  <td>	<input type="button" value="취소 요청" onclick="refund();"></td>
+	</tr>
+	  
+	</table>
+
+</body>
+</html>

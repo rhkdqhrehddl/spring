@@ -1,6 +1,9 @@
 package com.pg.spring;
 
 import java.util.Base64.Encoder;
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Map;
 
 
@@ -147,6 +150,8 @@ public class TossPGController {
 				Map<String, String> map = mapper.readValue(body, Map.class);
 				model.addAttribute("result", map);
 			} else {
+				System.out.println(response.getEntity().toString());
+				System.out.println(response.getEntity().getContent().toString());
 				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
 				model.addAttribute("err_msg", response.getStatusLine().getReasonPhrase());
 			}
@@ -157,5 +162,11 @@ public class TossPGController {
 		}
 		
 		return "/TossPG/success";
+	}
+	
+	
+	@RequestMapping(value = "**/callback.do", method = RequestMethod.POST)
+	public String callback(HttpServletRequest request) {
+		return "/TossPG/callback";
 	}
 }

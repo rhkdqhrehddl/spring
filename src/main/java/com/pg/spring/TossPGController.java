@@ -112,7 +112,7 @@ public class TossPGController {
 				model.addAttribute("result", map);
 			} else {
 				System.out.println("response is error : " + EntityUtils.toString(response.getEntity()));
-				model.addAttribute("err_msg", response.getStatusLine().getReasonPhrase());
+				model.addAttribute("err_msg", EntityUtils.toString(response.getEntity()));
 			}
 
 		} catch (Exception e){

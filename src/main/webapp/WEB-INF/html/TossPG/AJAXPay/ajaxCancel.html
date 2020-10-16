@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>토스페이먼츠 전자결제 결제취소 샘플 페이지(Ajax)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		var key = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG:"
+		var encryptedKey = btoa(key);
+	
+		function Cancel(){
+			resultString = '';
+			$.ajax({ 
+				type: "POST",
+				url: 'https://api.tosspayments.com/v1/payments/' + $('#paymentKey').val() + '/cancel', 
+				headers: {
+					"Authorization": "Basic " + encryptedKey,
+					"Accept" : "application/json;charset=UTF-8",
+					"Content-Type": "application/json;charset=UTF-8"
+				},
+				data: JSON.stringify({
+					cancelAmount: $('#cancelAmount').val(),
+					cancelReason: $('#cancelReason').val(),
+					requesterType: $('#requesterType').val()
+				}), 
+				dataType: 'json',
+				async: false,
+				success: function(data){
+					resultString = '취소성공<br/>';
+					for(var param in data){
+						if(typeof data[param] === 'object'){
+							resultString = resultString.concat(param, ' = ', JSON.stringify(data[param]), '<br/>');
+							continue;
+						}
+						resultString = resultString.concat(param, ' = ', data[param], '<br/>');
+					}
+				},
+				error: function(data){
+					resultString = '취소실패<br/>';
+					resultString = resultString.concat(data.responseJSON.code, ' - ', data.responseJSON.message, '<br/>');						
+				}
+			});
+			console.log(resultString);
+			$('#cancelResult').html(resultString) 
+		}
+	</script>
+</head>
+<body>
+   <div>
+       <table>	
+	    <h4>가상계좌 거래건 취소 X</h4>
+           <tr>
+               <td>requesterType </td>
+               <td><input type="text" name="requesterType" id="requesterType" value=""/></td>
+           </tr>
+           <tr>
+               <td>cancelReason </td>
+               <td><input type="text" name="cancelReason" id="cancelReason" value=""/></td>
+           </tr>
+           <tr>
+               <td>cancelAmount </td>
+               <td><input type="text" name="cancelAmount" id="cancelAmount" value=""/></td>
+           </tr>
+           <tr>
+               <td>paymentKey </td>
+               <td><input type="text" name="paymentKey" id="paymentKey" value=""/></td>
+           </tr> 
+           <tr>
+               <td><input type="button" value="결제 취소" onclick="Cancel()"/><br/></td>
+           </tr>
+       </table>
+	</div>
+    <br/>
+    <p id="cancelResult"></p>
+</body>
+</html>

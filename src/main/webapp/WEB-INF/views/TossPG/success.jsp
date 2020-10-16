@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>result</title>
+<title>결제 성공 페이지</title>
 </head>
 <body>
 	<%
@@ -22,6 +22,12 @@
 				break;
 			case 3:
 				flagWord = "조회";
+				break;
+			case 4:
+				flagWord = "빌링키 발급";
+				break;
+			case 5:
+				flagWord = "빌링결제";
 				break;
 			default:
 				flagWord = "결제";

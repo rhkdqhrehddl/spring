@@ -75,4 +75,14 @@ public class PGController {
 	public String AuthOnly(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/NoSession/*.do", method = RequestMethod.POST)
+	public String NoSession(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
+	
+	@RequestMapping(value = "/CardAPI/*.do", method = RequestMethod.POST)
+	public String CardAPI(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

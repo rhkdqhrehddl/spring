@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>토스페이먼츠 빌링결제 샘플 페이지(Ajax)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+		var key = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG:"
+		var encryptedKey = btoa(key);
+	
+		function LPad(digit, size, attatch) {
+		    var add = "";
+		    digit = digit.toString();
+		
+		    if (digit.length < size) {
+		        var len = size - digit.length;
+		        for (i = 0; i < len; i++) {
+		            add += attatch;
+		        }
+		    }
+		    return add + digit;
+		}
+		
+		function makeoid() {
+			var now = new Date();
+			var years = now.getFullYear();
+			var months = LPad(now.getMonth() + 1, 2, "0");
+			var dates = LPad(now.getDate(), 2, "0");
+			var hours = LPad(now.getHours(), 2, "0");
+			var minutes = LPad(now.getMinutes(), 2, "0");
+			var seconds = LPad(now.getSeconds(), 2, "0");
+			var timeValue = years + months + dates + hours + minutes + seconds; 
+			document.getElementById("orderId").value = "test_" + timeValue
+		}
+		
+		function BillingPayment(){
+			makeoid();
+			
+			var resultString = '';
+			$.ajax({ 
+				type: "POST",
+				url: 'https://api.tosspayments.com/v1/billing/' + $('#billingKey').val(), 
+				headers: {
+					"Authorization": "Basic " + encryptedKey,
+					"Accept" : "application/json;charset=UTF-8",
+					"Content-Type": "application/json;charset=UTF-8"
+				},
+				data: JSON.stringify({
+					amount: $('#amount').val(),
+					orderId: $('#orderId').val(),
+					customerKey: $('#customerKey').val(),
+					orderName: $('#orderName').val(),
+					customerEmail: $('#customerEmail').val(),
+					customerMobilePhone: $('#customerMobilePhone').val(),
+					taxFreeAmount: $('#taxFreeAmount').val()
+				}), 
+				dataType: 'json',
+				async: false,
+				success: function(data){
+					resultString = '빌링결제 성공<br/>';
+					for(var param in data){
+						if(typeof data[param] === 'object'){
+							resultString = resultString.concat(param, ' = ', JSON.stringify(data[param]), '<br/>');
+							continue;
+						}
+						resultString = resultString.concat(param, ' = ', data[param], '<br/>');
+					}
+				},
+				error: function(data){
+					resultString = '빌링결제 실패<br/>';
+					resultString = resultString.concat(data.responseJSON.code, ' - ', data.responseJSON.message, '<br/>');						
+				}
+			});
+
+			$('#BillingResult').html(resultString) 
+		}
+	</script>
+</head>
+<body>
+   <div>
+       <table>	
+           <tr>
+              <td>빌링키</td>
+              <td><input type="text" name="billingKey" id="billingKey" value=""/></td>
+           </tr>
+            <tr>
+                <td>결제금액 </td>
+                <td><input type="text" name="amount" id="amount" value="10000"/></td>
+            </tr>
+            <tr>
+                <td>주문번호 </td>
+                <td><input type="text" name="orderId" id="orderId" value="test_1234567890020"/></td>
+            </tr>
+            <tr>
+                <td>상점아이디 </td>
+                <td><input type="text" name="customerKey" id="customerKey" value=""/></td>
+            </tr>
+             <tr>
+                <td>상품정보 </td>
+                <td><input type="text" name="orderName" id="orderName" value="myLG070-인터넷전화기"/></td>
+            </tr>
+            <tr>
+                <td>구매자 이메일 </td>
+                <td><input type="text" name="customerEmail" id="customerEmail" value=""/></td>
+            </tr>
+            <tr>
+                <td>구매자 연락처 </td>
+                <td><input type="text" name="customerMobilePhone" id="customerMobilePhone" value=""/></td>
+            </tr>
+            <tr>
+                <td>면세금액 </td>
+                <td><input type="text" name="taxFreeAmount" id="taxFreeAmount" value=""/></td>
+            </tr>
+           <tr>
+               <td><input type="button" value="조회" onclick="BillingPayment()"/><br/></td>
+           </tr>
+       </table>
+	</div>
+    <br/>
+    <p id="BillingResult"></p>
+</body>
+</html>

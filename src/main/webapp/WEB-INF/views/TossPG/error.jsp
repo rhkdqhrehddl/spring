@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>result</title>
+<title>결제 실패 페이지</title>
 </head>
 <body>
 	<%
@@ -21,6 +21,12 @@
 				break;
 			case 3:
 				out.println("\t 조회실패 <br>");
+				break;
+			case 4:
+				out.println("\t 빌링키 발급실패 <br>");
+				break;
+			case 5:
+				out.println("\t 빌링결제실패 <br>");
 				break;
 			default:
 				out.println("\t 결제실패 <br>");

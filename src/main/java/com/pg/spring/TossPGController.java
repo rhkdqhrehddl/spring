@@ -63,8 +63,9 @@ public class TossPGController {
 				Map<String, String> map = mapper.readValue(body, Map.class);
 				model.addAttribute("result", map);
 			} else {
-				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
-				model.addAttribute("err_msg", EntityUtils.toString(response.getEntity()));
+				String err_msg = EntityUtils.toString(response.getEntity());
+				System.out.println("response is error : " + err_msg);
+				model.addAttribute("err_msg", err_msg);
 			}
 
 		} catch (Exception e){
@@ -111,8 +112,9 @@ public class TossPGController {
 				Map<String, String> map = mapper.readValue(body, Map.class);
 				model.addAttribute("result", map);
 			} else {
-				System.out.println("response is error : " + EntityUtils.toString(response.getEntity()));
-				model.addAttribute("err_msg", EntityUtils.toString(response.getEntity()));
+				String err_msg = EntityUtils.toString(response.getEntity());
+				System.out.println("response is error : " + err_msg);
+				model.addAttribute("err_msg", err_msg);
 			}
 
 		} catch (Exception e){
@@ -152,8 +154,9 @@ public class TossPGController {
 				Map<String, String> map = mapper.readValue(body, Map.class);
 				model.addAttribute("result", map);
 			} else {
-				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
-				model.addAttribute("err_msg", EntityUtils.toString(response.getEntity()));
+				String err_msg = EntityUtils.toString(response.getEntity());
+				System.out.println("response is error : " + err_msg);
+				model.addAttribute("err_msg", err_msg);
 			}
 
 		} catch (Exception e){
@@ -207,8 +210,9 @@ public class TossPGController {
 				Map<String, String> map = mapper.readValue(body, Map.class);
 				model.addAttribute("result", map);
 			} else {
-				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
-				model.addAttribute("err_msg", EntityUtils.toString(response.getEntity()));
+				String err_msg = EntityUtils.toString(response.getEntity());
+				System.out.println("response is error : " + err_msg);
+				model.addAttribute("err_msg", err_msg);
 			}
 
 		} catch (Exception e){
@@ -254,8 +258,9 @@ public class TossPGController {
 				Map<String, String> map = mapper.readValue(body, Map.class);
 				model.addAttribute("result", map);
 			} else {
-				System.out.println("response is error : " + response.getStatusLine().getStatusCode());
-				model.addAttribute("err_msg", EntityUtils.toString(response.getEntity()));
+				String err_msg = EntityUtils.toString(response.getEntity());
+				System.out.println("response is error : " + err_msg);
+				model.addAttribute("err_msg", err_msg);
 			}
 
 		} catch (Exception e){

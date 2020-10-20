@@ -36,6 +36,7 @@
 																								기타 인증도 사용할 경우 생년월일 (보안을 위해 DB나 세션에 저장처리 권장)
 																							*/ 
 	String LGD_NAMECHECKYN 			= request.getParameter("LGD_NAMECHECKYN");				// 계좌실명확인여부
+	String LGD_MERTNAME				= request.getParameter("LGD_MERTNAME");
 	String LGD_HOLDCHECKYN 			= request.getParameter("LGD_HOLDCHECKYN");				// 휴대폰본인확인 SMS발송 여부
 	String LGD_MOBILE_SUBAUTH_SITECD = request.getParameter("LGD_MOBILE_SUBAUTH_SITECD");	// 신용평가사에서 부여받은 회원사 고유 코드
 																							// (CI값만 필요한 경우 옵션, DI값도 필요한 경우 필수)
@@ -105,6 +106,7 @@
 	payReqMap.put("LGD_CUSTOM_SKIN"             , LGD_CUSTOM_SKIN );                	// 인증창 SKIN
 	payReqMap.put("LGD_TIMESTAMP"               , LGD_TIMESTAMP );                  	// 타임스탬프
 	payReqMap.put("LGD_CUSTOM_USABLEPAY"  		, LGD_CUSTOM_USABLEPAY );				// 디폴트 결제수단 (해당 필드를 보내지 않으면 결제수단 선택 UI 가 보이게 됩니다.)
+	payReqMap.put("LGD_MERTNAME"				, LGD_MERTNAME);
 	payReqMap.put("LGD_WINDOW_TYPE"             , LGD_WINDOW_TYPE );                   	// 인증창 호출 방식 (수정불가)
 	payReqMap.put("LGD_RETURNURL"   			, LGD_RETURNURL );      			   	// 응답수신페이지
 	payReqMap.put("LGD_VERSION"  				, "JSP_Non-ActiveX_SmartXPay_AuthOnly" );// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.

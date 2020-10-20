@@ -85,4 +85,14 @@ public class PGController {
 	public String CardAPI(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/PartialCancel/*.do", method = RequestMethod.POST)
+	public String PartialCancel(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
+	
+	@RequestMapping(value = "/AccCert/*.do", method = RequestMethod.POST)
+	public String AccCert(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

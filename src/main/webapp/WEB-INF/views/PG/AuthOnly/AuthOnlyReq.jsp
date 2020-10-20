@@ -46,6 +46,7 @@
 	String LGD_TIMESTAMP        	= request.getParameter("LGD_TIMESTAMP");            	// 타임스탬프(YYYYMMDDhhmmss)
 	String LGD_CUSTOM_SKIN      	= "red";                                            	// 본인확인창 스킨 컬러
 	String LGD_WINDOW_TYPE         	= request.getParameter("LGD_WINDOW_TYPE");           	// 본인확인창 호출 방식 (수정불가) 	
+	String LGD_MERTNAME				= request.getParameter("LGD_MERTNAME");
 	
 	//LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
 	String LGD_RETURNURL			= "https://" + serverName + "/PG/AuthOnly/returnurl.do";		// FOR MANUAL
@@ -109,6 +110,7 @@
 	payReqMap.put("LGD_TIMESTAMP"               , LGD_TIMESTAMP );                  	// 타임스탬프
 	payReqMap.put("LGD_CUSTOM_USABLEPAY"  		, LGD_CUSTOM_USABLEPAY );				// 디폴트 결제수단 (해당 필드를 보내지 않으면 결제수단 선택 UI 가 보이게 됩니다.)
 	payReqMap.put("LGD_WINDOW_TYPE"             , LGD_WINDOW_TYPE );                   	// 본인확인창 호출 방식 (수정불가)
+	payReqMap.put("LGD_MERTNAME"				, LGD_MERTNAME);
 	payReqMap.put("LGD_RETURNURL"   			, LGD_RETURNURL );      			   	// 응답수신페이지
 	payReqMap.put("LGD_VERSION"  				, "JSP_NON-ActiveX_AuthOnly" );			// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.
 	payReqMap.put("LGD_DOMAIN_URL"				, "xpayvvip" );

@@ -4,8 +4,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>토스페이먼츠 전자결제 샘플 페이지</title>
 		<script src="https://js.tosspayments.com/v1"></script>
+		<script src="/resources/vendor/jquery/jquery.min.js"></script>
 		<script type="text/javascript">
-			var clientKey = 'test_ck_qLlDJaYngrojajq5ZyyVezGdRpXx';
+			var clientKey = '';
+			$.ajax({ 
+				type: "POST",
+				url: window.location.origin + '/TossPG/key.do', 
+				data: 'kind=clientKey', 
+				async: false,
+				success: function(key){
+					console.log(key)
+					clientKey = key
+				},
+				error: function(data){
+					console.log('error')					
+				}
+			});			
+	
 			var tossPayments = TossPayments(clientKey);
 			
 			function LPad(digit, size, attatch) {

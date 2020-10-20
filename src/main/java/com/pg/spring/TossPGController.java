@@ -2,6 +2,7 @@ package com.pg.spring;
 
 import java.util.Base64.Encoder;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import java.util.Map;
@@ -17,11 +18,13 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.GsonBuilder;
@@ -29,14 +32,32 @@ import com.google.gson.GsonBuilder;
 @Controller
 @RequestMapping("/TossPG")
 public class TossPGController {
+	
+	@Value("${clientKey}")
+	private String clientKey;
+
+	@Value("${secretKey}")
+	private String secretKey;
+	
+	
+	@PostConstruct
+	public void postConstruct() {
+		Encoder encoder = java.util.Base64.getEncoder();
+		
+		secretKey = secretKey + ":";
+		secretKey = new String(encoder.encode(secretKey.getBytes()));
+	}
+	
+	
+	@RequestMapping(value = "**/key.do", method = RequestMethod.POST)
+	public @ResponseBody String key(@RequestParam (value="kind", required=true, defaultValue="clientKey")String kind) {
+		return kind.equals("clientKey") ? clientKey : secretKey;
+	}
+	
 	@RequestMapping(value = "**/success.do", method = RequestMethod.GET)
 	public String success(Model model, @RequestParam (value="paymentKey", required=true) String paymentKey, 
 			PayRequest payRequest) {
 		try {
-			Encoder encoder = java.util.Base64.getEncoder();
-			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
-			secretKey = new String(encoder.encode(secretKey.getBytes()));
-			
 			HttpClient client = HttpClientBuilder.create().build(); 
 			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey); 
 			
@@ -81,11 +102,7 @@ public class TossPGController {
 	@RequestMapping(value = "**/Cancel.do", method = RequestMethod.POST)
 	public String cancel(Model model, @RequestParam (value="paymentKey", required=true) String paymentKey, 
 			CancelRequest cancelRequest) {
-		try {
-			Encoder encoder = java.util.Base64.getEncoder();
-			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
-			secretKey = new String(encoder.encode(secretKey.getBytes()));
-			
+		try {			
 			HttpClient client = HttpClientBuilder.create().build(); 
 			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/payments/" + paymentKey + "/cancel"); 
 			
@@ -128,10 +145,6 @@ public class TossPGController {
 	@RequestMapping(value = "**/Search.do", method = RequestMethod.GET)
 	public String search(Model model, @RequestParam (value="paymentKey", required=true) String paymentKey) {
 		try {
-			Encoder encoder = java.util.Base64.getEncoder();
-			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
-			secretKey = new String(encoder.encode(secretKey.getBytes()));
-			
 			HttpClient client = HttpClientBuilder.create().build(); 
 			HttpGet getRequest = new HttpGet("https://api.tosspayments.com/v1/payments/" + paymentKey); 
 			
@@ -169,7 +182,7 @@ public class TossPGController {
 	
 	
 	@RequestMapping(value = "**/callback.do", method = RequestMethod.POST)
-	public String callback(HttpServletRequest request) {
+	public String callback() {
 		return "/TossPG/callback";
 	}
 	
@@ -177,10 +190,6 @@ public class TossPGController {
 	public String billingKey(Model model, @RequestParam (value="customerKey", required=true) String customerKey, 
 			@RequestParam (value="authKey", required=true) String authKey) {
 		try {
-			Encoder encoder = java.util.Base64.getEncoder();
-			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
-			secretKey = new String(encoder.encode(secretKey.getBytes()));
-			
 			HttpClient client = HttpClientBuilder.create().build(); 
 			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/billing/authorizations/" + authKey); 
 			
@@ -227,11 +236,7 @@ public class TossPGController {
 	@RequestMapping(value = "**/Billing.do", method = RequestMethod.POST)
 	public String Billing(Model model, @RequestParam (value="billingKey", required=true) String billingKey, 
 			BillingRequest billingRequest) {
-		try {
-			Encoder encoder = java.util.Base64.getEncoder();
-			String secretKey = "test_ak_YZ1aOwX7K8mjBX1WdK93yQxzvNPG" + ":";
-			secretKey = new String(encoder.encode(secretKey.getBytes()));
-			
+		try {			
 			HttpClient client = HttpClientBuilder.create().build(); 
 			HttpPost postRequest = new HttpPost("https://api.tosspayments.com/v1/billing/" + billingKey); 
 			
@@ -270,4 +275,10 @@ public class TossPGController {
 		
 		return "/TossPG/success";
 	}
+	
+	
+	@RequestMapping(value = "**/fail.do", method = RequestMethod.GET)
+	public String fail(HttpServletRequest request) {
+		return "/TossPG/fail";
+	}	
 }

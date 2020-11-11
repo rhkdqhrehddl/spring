@@ -229,18 +229,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>통합LG유플러스 전자결서비스 결제테스트</title>
 <!-- test일 경우 -->
-<script language="javascript" src="https://pretest.uplus.co.kr:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
-<script language="JavaScript" src="http://pgweb.tosspayments.com:7085/WEB_SERVER/js/receipt_link.js"></script>
-<!-- 
-  service일 경우 아래 URL을 사용 
+<!-- <script language="javascript" src="https://pretest.uplus.co.kr:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script> -->
+<script language="JavaScript" src="https://pgweb.tosspayments.com/WEB_SERVER/js/receipt_link.js"></script>
+
+<!--   service일 경우 아래 URL을 사용  -->
 <script language="javascript" src="https://xpayvvip.uplus.co.kr/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
- -->
+
 <script type="text/javascript">
 
 /*
 * 수정불가.
 */
-	var LGD_window_type = '<%=LGD_WINDOW_TYPE%>';
+	var LGD_window_type = 'popup';
 	
 /*
 * 수정불가
@@ -261,8 +261,7 @@ function getFormObject() {
 function payment_return() {
 	var fDoc;
 	
-		fDoc = lgdwin.contentWindow || lgdwin.contentDocument;
-		console.dir(lgdwin);
+		fDoc = lgdwin.contentWindow || lgdwin.contentDocument
 	
 		
 	if (fDoc.document.getElementById('LGD_RESPCODE').value == "0000") {

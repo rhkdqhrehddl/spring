@@ -158,7 +158,7 @@
 	 * 신용카드 결제요청시에만 추가 해 주세요.
 	 */
 	 payReqMap.put("LGD_SELF_CUSTOM"         , LGD_SELF_CUSTOM );                  
-     payReqMap.put("LGD_CARDTYPE"         	 , LGD_CARDTYPE );                  
+    /*  payReqMap.put("LGD_CARDTYPE"         	 , LGD_CARDTYPE ); */                  
      payReqMap.put("LGD_INSTALL"           	 , LGD_INSTALL );                     
      payReqMap.put("LGD_NOINT"           	 , LGD_NOINT );                     
      payReqMap.put("LGD_SP_CHAIN_CODE"       , LGD_SP_CHAIN_CODE );                     

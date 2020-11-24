@@ -28,7 +28,7 @@
                                                                                         //상점아이디(자동생성)
     String LGD_OID              = request.getParameter("LGD_OID");                      //주문번호(상점정의 유니크한 주문번호를 입력하세요)
     String LGD_AMOUNT           = request.getParameter("LGD_AMOUNT");                   //결제금액("," 를 제외한 결제금액을 입력하세요)
-    String LGD_MERTKEY          = "반드시 입력하세요";                  						//상점MertKey(mertkey는 상점관리자 -> 계약정보 -> 상점정보관리에서 확인하실수 있습니다)
+    String LGD_MERTKEY          = "d26e0b194db2b3024517468944c7a8e4";                  						//상점MertKey(mertkey는 상점관리자 -> 계약정보 -> 상점정보관리에서 확인하실수 있습니다)
     String LGD_BUYER            = request.getParameter("LGD_BUYER");                    //구매자명
     String LGD_PRODUCTINFO      = request.getParameter("LGD_PRODUCTINFO");              //상품명
     String LGD_BUYEREMAIL       = request.getParameter("LGD_BUYEREMAIL");               //구매자 이메일
@@ -158,7 +158,7 @@
 	 * 신용카드 결제요청시에만 추가 해 주세요.
 	 */
 	 payReqMap.put("LGD_SELF_CUSTOM"         , LGD_SELF_CUSTOM );                  
-    /*  payReqMap.put("LGD_CARDTYPE"         	 , LGD_CARDTYPE ); */                  
+     payReqMap.put("LGD_CARDTYPE"         	 , LGD_CARDTYPE );                  
      payReqMap.put("LGD_INSTALL"           	 , LGD_INSTALL );                     
      payReqMap.put("LGD_NOINT"           	 , LGD_NOINT );                     
      payReqMap.put("LGD_SP_CHAIN_CODE"       , LGD_SP_CHAIN_CODE );                     

@@ -164,7 +164,8 @@
      payReqMap.put("LGD_SP_CHAIN_CODE"       , LGD_SP_CHAIN_CODE );                     
      payReqMap.put("LGD_SP_ORDER_USER_ID"    , LGD_SP_ORDER_USER_ID );                     
      payReqMap.put("LGD_POINTUSE"          	 , LGD_POINTUSE );                                        
-     payReqMap.put("LGD_CURRENCY"          	 , LGD_CURRENCY );
+     payReqMap.put("LGD_CURRENCY"          	 , LGD_CURRENCY );                                    
+     payReqMap.put("LGD_EASYPAY_ONLY"          	 , "PAYNOW" );
 	//- 끝
 	 
 

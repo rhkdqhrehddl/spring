@@ -240,7 +240,7 @@
 /*
 * 수정불가.
 */
-	var LGD_window_type = 'popup';
+	var LGD_window_type = '<%= LGD_WINDOW_TYPE %>';
 	
 /*
 * 수정불가

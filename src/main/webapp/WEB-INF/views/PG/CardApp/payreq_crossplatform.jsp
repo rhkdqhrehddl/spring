@@ -22,6 +22,9 @@
 	*
 	* 기본정보를 변경하여 주시기 바랍니다.(파라미터 전달시 POST를 사용하세요)
 	*/
+ 	
+ 	String sessionid = request.getSession().getId();
+ 	response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; Path=/; Secure; SameSite=None");
 	
 	
 	String CST_PLATFORM                 = request.getParameter("CST_PLATFORM");                     // 토스페이먼츠 결제 서비스 선택(test:테스트, service:서비스)

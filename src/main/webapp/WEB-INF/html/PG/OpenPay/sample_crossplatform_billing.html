@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>토스페이먼츠 전자결제 샘플 페이지 (XPay)</title>
+<script type="text/javascript">
+function LPad(digit, size, attatch) {
+    var add = "";
+    digit = digit.toString();
+
+    if (digit.length < size) {
+        var len = size - digit.length;
+        for (i = 0; i < len; i++) {
+            add += attatch;
+        }
+    }
+    return add + digit;
+}
+
+function makeoid() {
+	var now = new Date();
+	var years = now.getFullYear();
+	var months = LPad(now.getMonth() + 1, 2, "0");
+	var dates = LPad(now.getDate(), 2, "0");
+	var hours = LPad(now.getHours(), 2, "0");
+	var minutes = LPad(now.getMinutes(), 2, "0");
+	var seconds = LPad(now.getSeconds(), 2, "0");
+	var timeValue = years + months + dates + hours + minutes + seconds; 
+	document.getElementById("LGD_OID").value = "test_" + timeValue;
+	document.getElementById("LGD_TIMESTAMP").value = timeValue;
+}
+
+/*
+* 인증요청 처리 
+*/
+function doPay() {
+	// OID, TIMESTAMP 생성
+	makeoid();
+	// 결제창 호출
+	document.getElementById("LGD_PAYINFO").submit();
+}
+
+/*
+ * mobile, web 여부 체크
+ */
+function mobileCheck(){
+	var filter = "win16|win32|win64|mac";
+    
+    if(navigator.platform){
+        if(0 > filter.indexOf(navigator.platform.toLowerCase())){
+            // mobile
+        	document.getElementById("LGD_WINDOW_TYPE").value = "submit";
+        }else{
+            // web
+        	document.getElementById("LGD_WINDOW_TYPE").value = "iframe";
+        }
+    }
+}
+</script>
+</head>
+<body onload="javascript:mobileCheck();">
+<form method="post" id="LGD_PAYINFO" action="payreq_crossplatform_billing.jsp">
+    <div>
+        <table>
+            <tr>
+                <td>상점아이디(t를 제외한 아이디) </td>
+                <td><input type="text" name="CST_MID" id="CST_MID" value="paynow_test04"/></td>
+            </tr>
+            <tr>
+                <td>서비스,테스트 </td>
+                <td><input type="text" name="CST_PLATFORM" id="CST_PLATFORM" value="n2tstaging"/></td>
+            </tr>
+            <tr>
+                <td>구매자 이름 </td>
+                <td><input type="text" name="LGD_BUYER" id="LGD_BUYER" value="홍길동"/></td>
+            </tr>
+            <tr>
+                <td>상품정보 </td>
+                <td><input type="text" name="LGD_PRODUCTINFO" id="LGD_PRODUCTINFO" value="myLG070-인터넷전화기"/></td>
+            </tr>
+            <tr>
+                <td>결제금액 </td>
+                <td><input type="text" name="LGD_AMOUNT" id="LGD_AMOUNT" value="100"/></td>
+            </tr>
+            <tr>
+                <td>구매자 이메일 </td>
+                <td><input type="text" name="LGD_BUYEREMAIL" id="LGD_BUYEREMAIL" value=""/></td>
+            </tr>
+            <tr>
+                <td>주문번호 </td>
+                <td><input type="text" name="LGD_OID" id="LGD_OID" value="test_1234567890020"/></td>
+            </tr>
+            <tr>
+                <td>타임스탬프 </td>
+                <td><input type="text" name="LGD_TIMESTAMP" id="LGD_TIMESTAMP" value="1234567890"/></td>
+            </tr>
+            <tr>
+                <td>초기결제수단 </td>
+                <td>
+                	<select name="LGD_CUSTOM_USABLEPAY" id="LGD_CUSTOM_USABLEPAY">
+						<option value="SC0010">신용카드</option>
+						<option value="SC0030">계좌이체</option>				
+					</select>
+				</td>
+			</tr>
+            <tr>
+                <td>표시할부개월수 LGD_INSTALLRANGE </td>
+                <td><input type="text" name="LGD_INSTALLRANGE" id="LGD_INSTALLRANGE" value="0:2:3:4:5:6:7:8:9:10:11:12"/></td>
+            </tr>
+            <tr>
+                <td>무이자할부 적용여부 LGD_NOINT </td>
+                <td>
+                	<select name="LGD_NOINT" id="LGD_NOINT">
+						<option value="N">N</option>
+						<option value="Y">Y</option>				
+					</select>
+				</td>
+			</tr>
+			<!-- <tr>
+                <td>무이자할부 적용 카드사+할부개월 정보 LGD_NOINTINF </td>
+                <td><input type="text" name="LGD_NOINTINF" id="LGD_NOINTINF" value="31-10:11:12"/></td>
+            </tr> -->
+            <!-- <tr>
+                <td>사용가능은행 표시 LGD_USABLEBANK </td>
+                <td><input type="text" name="LGD_USABLEBANK" id="LGD_USABLEBANK" value="03-06-11"/></td>
+            </tr> -->
+            <tr>
+                <td>현금영수증 LGD_CASHRECEIPTYN </td>
+                <td>
+                	<select name="LGD_CASHRECEIPTYN" id="LGD_CASHRECEIPTYN">
+						<option value="N">N</option>
+						<option value="Y">Y</option>				
+					</select>
+				</td>
+			</tr>
+            <tr>
+                <td>에스크로 LGD_ESCROW_USEYN </td>
+                <td>
+                	<select name="LGD_ESCROW_USEYN" id="LGD_ESCROW_USEYN">
+						<option value="N">N</option>
+						<option value="Y">Y</option>				
+					</select>
+				</td>
+			</tr>
+            <tr>
+                <td>결제창 호출 방식 </td>
+                <td><input type="text" name="LGD_WINDOW_TYPE" id="LGD_WINDOW_TYPE" value=""/></td>
+            </tr>
+            <tr>
+                <td>LGD_OPENPAY_TOKEN</td>
+                <td><input type="text" name="LGD_OPENPAY_TOKEN" id="LGD_OPENPAY_TOKEN" value="7534364922be080e7785d689ef5f647d037e686982f55f069544b07bc3b886188c6f5cef75dfc1e80010ae5f6cfc34f5fe8dfae17a95ec4d48a73a036b86800c"/></td>
+            </tr>
+            <tr>
+                <td>LGD_OPENPAY_MER_UID</td>
+                <td><input type="text" name="LGD_OPENPAY_MER_UID" id="LGD_OPENPAY_MER_UID" value="paytech@lgtosspayments.com"/></td>
+            </tr>
+            <tr>
+                <td>PG 표준결제창 사이즈</td>
+                <td>
+                	<select name="VIEW_AGREE" id="VIEW_AGREE" style="width:100%">
+                		<option value="">선택하세요.</option>
+                		<option value="Y">Y</option>
+						<option value="N" selected>N</option>
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <input type="button" value="결제하기" onclick="doPay();" /><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

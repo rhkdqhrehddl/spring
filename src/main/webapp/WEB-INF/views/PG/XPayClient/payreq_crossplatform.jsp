@@ -10,8 +10,6 @@
      *
      * 샘플페이지에서는 기본 파라미터만 예시되어 있으며, 별도로 필요하신 파라미터는 연동메뉴얼을 참고하시어 추가 하시기 바랍니다.
      */
-
-
      /* ※ 중요
  	* 환경설정 파일의 경우 반드시 외부에서 접근이 가능한 경로에 두시면 안됩니다.
  	* 해당 환경파일이 외부에 노출이 되는 경우 해킹의 위험이 존재하므로 반드시 외부에서 접근이 불가능한 경로에 두시기 바랍니다. 
@@ -24,7 +22,6 @@
  	}
  	
  	String sessionid = request.getSession().getId();
-
  	response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; Path=/; Secure; SameSite=None");
  	
     /*
@@ -32,7 +29,6 @@
      *
      * 기본정보를 변경하여 주시기 바랍니다.(파라미터 전달시 POST를 사용하세요)
      */
-
  	String serverName = request.getServerName();
     String CST_PLATFORM         = request.getParameter("CST_PLATFORM");                 //LG유플러스 결제서비스 선택(test:테스트, service:서비스)
     String CST_MID              = request.getParameter("CST_MID");                      //LG유플러스로 부터 발급받으신 상점아이디를 입력하세요.
@@ -51,16 +47,13 @@
     String LGD_CUSTOM_SWITCHINGTYPE = request.getParameter("LGD_CUSTOM_SWITCHINGTYPE"); //신용카드 카드사 인증 페이지 연동 방식 (수정불가)
     String LGD_WINDOW_VER		= "2.5";												//결제창 버젼정보
     String LGD_WINDOW_TYPE      = request.getParameter("LGD_WINDOW_TYPE");              //결제창 호출 방식 (수정불가)
-
 	String LGD_OSTYPE_CHECK     = "P";                                                  //값 P: XPay 실행(PC 결제 모듈): PC용과 모바일용 모듈은 파라미터 및 프로세스가 다르므로 PC용은 PC 웹브라우저에서 실행 필요. 
                                                                                         //"P", "M" 외의 문자(Null, "" 포함)는 모바일 또는 PC 여부를 체크하지 않음
 	String LGD_ACTIVEXYN		= "N";													//계좌이체 결제시 사용, ActiveX 사용 여부로 "N" 이외의 값: ActiveX 환경에서 계좌이체 결제 진행(IE)
-
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다.
      */
     String LGD_CASNOTEURL		= "https://" + serverName + "/PG/XPayClient/cas_noteurl.do";
-
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
@@ -70,7 +63,6 @@
     String LGD_TAXFREEAMOUNT = request.getParameter("LGD_TAXFREEAMOUNT");
 	String LGD_DIVIDE_INFO 		= "{\"divideinfo\":[{\"sub_merchantid\":\"dacomnpg\",\"amount\":\"20\",\"productinfo\":\"상품1\"},{\"sub_merchantid\":\"dacomst7\",\"amount\":\"80\",\"productinfo\":\"상품2\"}]}";  
     
-
     /*
      *************************************************
      * 2. MD5 해쉬암호화 (수정하지 마세요) - BEGIN
@@ -186,7 +178,6 @@
      //payReqMap.put("LGD_LANGUAGE"          , "EN" );
      payReqMap.put("LGD_PRODUCTCODE"          , "rhkdqhrehddl" );
      
-
 /* 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y" );                  
      payReqMap.put("LGD_CARDTYPE"         	 , "21" );    */
      /* payReqMap.put("LGD_EASYPAY_ONLY"		, "SAMSUNGPAY"); 		//해당 파라미터 지정시 간편결제 진행*/
@@ -218,9 +209,7 @@
 	 payReqMap.put("LGD_RESPCODE"  		 , "" );
 	 payReqMap.put("LGD_RESPMSG"  		 , "" );
 	 payReqMap.put("LGD_PAYKEY"  		 , "" );
-
 	 session.setAttribute("PAYREQ_MAP", payReqMap);
-
  %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -236,11 +225,10 @@
 <script language="javascript" src="https://xpayvvip.uplus.co.kr/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
 /*
 * 수정불가.
 */
-	var LGD_window_type = 'popup';
+	var LGD_window_type = '<%= LGD_WINDOW_TYPE %>';
 	
 /*
 * 수정불가
@@ -254,7 +242,6 @@ function launchCrossPlatform(){
 function getFormObject() {
         return document.getElementById("LGD_PAYINFO");
 }
-
 /*
  * 인증결과 처리
  */
@@ -275,7 +262,6 @@ function payment_return() {
 		closeIframe();
 	}
 }
-
 </script>
 </head>
 <body>

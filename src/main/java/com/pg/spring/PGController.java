@@ -95,4 +95,9 @@ public class PGController {
 	public String AccCert(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/CardApp/*.do", method = RequestMethod.POST)
+	public String CardApp(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

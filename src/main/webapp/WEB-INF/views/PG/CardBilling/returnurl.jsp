@@ -11,6 +11,10 @@ String LGD_PAYTYPE 		= request.getParameter("LGD_PAYTYPE");		//인증수단
 String LGD_PAYDATE 		= request.getParameter("LGD_PAYDATE");		//인증일시
 String LGD_FINANCECODE 	= request.getParameter("LGD_FINANCECODE");	//인증기관코드
 String LGD_FINANCENAME 	= request.getParameter("LGD_FINANCENAME");	//인증기관이름 
+String LGD_CARDNUM 	= request.getParameter("LGD_CARDNUM");	//인증기관이름 
+
+
+out.println("LGD_CARDNUM:" + LGD_CARDNUM);
 
 HashMap payReqMap = (HashMap)session.getAttribute("PAYREQ_MAP");//결제 요청시, Session에 저장했던 파라미터 MAP
 %>
@@ -45,6 +49,7 @@ HashMap payReqMap = (HashMap)session.getAttribute("PAYREQ_MAP");//결제 요청�
 		payReqMap.put("LGD_PAYDATE"		, LGD_PAYDATE);
 		payReqMap.put("LGD_FINANCECODE"	, LGD_FINANCECODE);
 		payReqMap.put("LGD_FINANCENAME"	, LGD_FINANCENAME);
+		payReqMap.put("LGD_CARDNUM"	, LGD_CARDNUM);
 		
 		for (Iterator i = payReqMap.keySet().iterator(); i.hasNext();) {
 			Object key = i.next();

@@ -304,7 +304,6 @@ function payment_return() {
 	<input type="hidden" name="VBV_JOINCODE"			id="VBV_JOINCODE"		value="<%= VBV_JOINCODE %>"/>				<!--안심클릭 JOINCODE -->
 	<input type="hidden" name="VBV_XID"					id="VBV_XID"			value="<%= VBV_XID %>"/>                    <!--안심클릭 XID  -->
 	<input type="hidden" name="LGD_LANGUAGE"			id="LGD_LANGUAGE"		value="<%= LGD_LANGUAGE %>"/>				<!-- 결제창내 표시할 언어     -->
-	<input type="hidden" name="LGD_EASYPAY_ONLY"			id="LGD_EASYPAY_ONLY"		value="PAYNOW"/>
 </form>
 
 </body>

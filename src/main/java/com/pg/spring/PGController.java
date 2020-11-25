@@ -100,4 +100,14 @@ public class PGController {
 	public String CardApp(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/GiftCulture/*.do", method = RequestMethod.POST)
+	public String GiftCulture(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
+	
+	@RequestMapping(value = "/Escrow/*.do")
+	public String Escrow(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

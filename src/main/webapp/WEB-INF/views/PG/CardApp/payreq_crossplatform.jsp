@@ -287,7 +287,7 @@ function payment_return() {
 	<input type="hidden" name="KVP_RESERVED3"			id="KVP_RESERVED3"				value="<%= KVP_RESERVED3 %>"/>          <!-- -->
 	<input type="hidden" name="LGD_KVPISP_USER"			id="LGD_KVPISP_USER"			value="<%= LGD_KVPISP_USER %>"/>		<!--Speed ISP USER정보 -->
 	<input type="hidden" name="LGD_EXPMON"				id="LGD_EXPMON"					value="<%= LGD_EXPMON %>"/>             <!--카드유효기간 (월) -->
-	<%-- <input type="hidden" name="LGD_CARDTYPE"			id="LGD_CARDTYPE"				value="<%= LGD_CARDTYPE %>"/>   --%>         
+	<input type="hidden" name="LGD_CARDTYPE"			id="LGD_CARDTYPE"				value="<%= LGD_CARDTYPE %>"/>            
 	<input type="hidden" name="LGD_PAN"					id="LGD_PAN"					value="<%= LGD_PAN %>"/>                <!--신용카드번호 -->
 	<input type="hidden" name="LGD_EXPYEAR"				id="LGD_EXPYEAR"				value="<%= LGD_EXPYEAR %>"/>            <!-- 카드유효기간 (년)-->
 	<input type="hidden" name="LGD_INSTALL"				id="LGD_INSTALL"				value="<%= LGD_INSTALL %>"/>            <!--안심클릭 할부 개월 -->

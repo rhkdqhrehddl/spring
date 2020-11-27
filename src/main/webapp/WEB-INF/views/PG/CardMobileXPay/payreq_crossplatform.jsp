@@ -172,7 +172,7 @@
 	payReqMap.put("LGD_NOINT"					, LGD_NOINT );							// 무이자여부
 	payReqMap.put("LGD_SP_CHAIN_CODE"			, LGD_SP_CHAIN_CODE );					// 간편결제사용여부
 	payReqMap.put("LGD_SP_ORDER_USER_ID"		, LGD_SP_ORDER_USER_ID );				// 간편결제 쇼핑몰 KEY_ID(계약된 일부 상점만 가능)
-	/* payReqMap.put("LGD_CANCELURL"				, LGD_CANCELURL ); */						// 안심클릭 취소 URL
+	payReqMap.put("LGD_CANCELURL"				, LGD_CANCELURL );						// 안심클릭 취소 URL
 	payReqMap.put("LGD_SELF_CUSTOM"				, LGD_SELF_CUSTOM );					// 신용카드선택페이지 스킵관련 파라미터
 	//- 끝
 

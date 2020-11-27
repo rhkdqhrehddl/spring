@@ -18,7 +18,9 @@
      *
      * 기본정보를 변경하여 주시기 바랍니다.(파라미터 전달시 POST를 사용하세요)
      */
- 	
+
+  	String sessionid = request.getSession().getId();
+  	response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; Path=/; Secure; SameSite=None");
 
   	String serverName = request.getServerName();
     String CST_PLATFORM         = request.getParameter("CST_PLATFORM");                // 토스페이먼츠 결제서비스 선택(test:테스트, service:서비스)
@@ -125,6 +127,9 @@
 	payReqMap.put("LGD_OPENPAY_TOKEN"			, LGD_OPENPAY_TOKEN);					// 오픈페이 결제 고객 로그인 토큰
 	payReqMap.put("LGD_OPENPAY_MER_UID"			, LGD_OPENPAY_MER_UID);					// 오픈페이 결제 고객 가맹점 ID
 	payReqMap.put("LGD_DOMAIN_URL"				, "xpayvvip" );	
+    payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:6:7:8:9:10:11:12" );
+    payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
+    payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );
 	
     /*Return URL에서 인증 결과 수신 시 셋팅될 파라미터 입니다.*/
 	payReqMap.put("LGD_RESPCODE"  		 		, "" );

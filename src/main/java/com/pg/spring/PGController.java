@@ -110,4 +110,9 @@ public class PGController {
 	public String Escrow(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+
+	@RequestMapping(value = "/OpenPay/*.do")
+	public String OpenPay(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

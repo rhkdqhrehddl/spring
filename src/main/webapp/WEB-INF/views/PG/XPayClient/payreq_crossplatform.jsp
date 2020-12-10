@@ -180,7 +180,7 @@
      
 /* 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y" );                  
      payReqMap.put("LGD_CARDTYPE"         	 , "21" );    */
-     /* payReqMap.put("LGD_EASYPAY_ONLY"		, "SAMSUNGPAY"); 		//해당 파라미터 지정시 간편결제 진행*/
+     payReqMap.put("LGD_EASYPAY_ONLY"		, "PAYCO"); 		//해당 파라미터 지정시 간편결제 진행
      
     /* 공통 파라미터 */
      

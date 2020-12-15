@@ -2,6 +2,11 @@
 <%@ page import="java.security.MessageDigest" %>
 
 <%
+//**************************//
+//
+// 처리결과 수신 JSP 예제
+//
+//**************************//
 	request.setCharacterEncoding("utf-8");
 // ## 이 페이지는 수정하지 마십시요. ##
 

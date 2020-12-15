@@ -176,15 +176,15 @@
      payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:6:7:8:9:10:11:12" );
      payReqMap.put("LGD_NOINTINF"          , "21-3:6:7:8:9:12,51-7:8:9:12" );
      //payReqMap.put("LGD_LANGUAGE"          , "EN" );
-     payReqMap.put("LGD_PRODUCTCODE"          , "rhkdqhrehddl" );
+     payReqMap.put("LGD_PRODUCTCODE"          , "test1234" );
      
 /* 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y" );                  
      payReqMap.put("LGD_CARDTYPE"         	 , "21" );    */
-     /* payReqMap.put("LGD_EASYPAY_ONLY"		, "SAMSUNGPAY"); 		//해당 파라미터 지정시 간편결제 진행*/
+     /* payReqMap.put("LGD_EASYPAY_ONLY"		, "LGPAY"); 		//해당 파라미터 지정시 간편결제 진행 */
      
     /* 공통 파라미터 */
      
-     //payReqMap.put("LGD_BUYERID"          , "rhkdqhrehddl" );
+     payReqMap.put("LGD_BUYERID"          , "test1234" );
      //payReqMap.put("LGD_BUYERIP"          , "172.26.103.151" );
      //payReqMap.put("LGD_ESCROW_USEYN"          , "N" );
      //payReqMap.put("LGD_CLOSEDATE"          , "20200428111111" );

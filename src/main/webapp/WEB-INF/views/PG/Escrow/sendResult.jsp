@@ -34,17 +34,17 @@ function linkESCROW(mid,oid)
 	//service_url = "https://pgweb.tosspayments.com/pg/wmp/mertadmin/jsp/escrow/rcvdlvinfo.jsp"; 
 
 	String mid ="tdacomnpg";
-	String oid ="test_20201102114120";
+	String oid ="test_20201217114117";
 	String productid ="";
 	String orderdate ="";
-	String dlvtype ="01";
+	String dlvtype ="03";
 	String rcvdate ="202011031020";
 	String rcvname ="이원준";
 	String rcvrelation ="본인";
-	String dlvdate ="202011030940";
+	String dlvdate ="202012171340";
 	String dlvcompcode ="CJ";
 	String dlvcomp ="";
-	String dlvno ="12345622798";
+	String dlvno ="12345622794";
 	String dlvworker ="";
 	String dlvworkertel  ="";
 	String hashdata ="";

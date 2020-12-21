@@ -288,6 +288,10 @@ function payment_return() {
         <td><%= LGD_OID %></td>
     </tr>
     <tr>
+        <td>상점아이디 </td>
+        <td><%= LGD_MID %></td>
+    </tr>
+    <tr>
     	<td>IP</td>
     	<td><%= request.getServerName() %> </td>
    </tr>

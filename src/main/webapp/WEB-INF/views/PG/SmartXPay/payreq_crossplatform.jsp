@@ -60,7 +60,7 @@
 	/*
 	* ISP 카드결제 연동을 위한 파라미터(필수)
 	*/
-	String LGD_KVPMISPWAPURL		= "";
+	String LGD_KVPMISPWAPURL		= "ordSeq=202012287980";
 	String LGD_KVPMISPCANCELURL     = "";
 		
 	String LGD_MPILOTTEAPPCARDWAPURL = ""; //iOS 연동시 필수

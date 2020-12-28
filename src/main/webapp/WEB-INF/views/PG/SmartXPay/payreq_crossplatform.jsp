@@ -45,7 +45,7 @@
 	String LGD_TIMESTAMP        = request.getParameter("LGD_TIMESTAMP");                //타임스탬프
 	String LGD_CUSTOM_FIRSTPAY  = request.getParameter("LGD_CUSTOM_FIRSTPAY");          //상점정의 초기결제수단
 	String LGD_PCVIEWYN			= request.getParameter("LGD_PCVIEWYN");					//페이나우 휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
-	String LGD_CUSTOM_SKIN      = "SMART_XPAY2";                                        //상점정의 결제창 스킨
+	String LGD_CUSTOM_SKIN      = "red";                                        //상점정의 결제창 스킨
 	
 	/*
 	* 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다.
@@ -60,7 +60,7 @@
 	/*
 	* ISP 카드결제 연동을 위한 파라미터(필수)
 	*/
-	String LGD_KVPMISPWAPURL		= "ordSeq=202012287980";
+	String LGD_KVPMISPWAPURL		= "";
 	String LGD_KVPMISPCANCELURL     = "";
 		
 	String LGD_MPILOTTEAPPCARDWAPURL = ""; //iOS 연동시 필수
@@ -138,6 +138,7 @@
 	
 	payReqMap.put("LGD_CUSTOM_SWITCHINGTYPE"	, "SUBMIT" );							// 신용카드 카드사 인증 페이지 연동 방식
 	payReqMap.put("LGD_DOMAIN_URL"	, "xpayvvip" );
+	payReqMap.put("LGD_USABLECARD"	, "31" );
 
 	//iOS 연동시 필수
 	payReqMap.put("LGD_MPILOTTEAPPCARDWAPURL"	, LGD_MPILOTTEAPPCARDWAPURL );
@@ -161,7 +162,7 @@
 	* 계좌이체 결제에만 적용 - BEGIN 
 	****************************************************
 	*/
-	payReqMap.put("LGD_MTRANSFERWAPURL"			, LGD_MTRANSFERWAPURL );	
+	payReqMap.put("LGD_MTRANSFERWAPURL"			, "ordSeq=202012287980" );	
 	payReqMap.put("LGD_MTRANSFERCANCELURL"		, LGD_MTRANSFERCANCELURL );
 	
 	/*

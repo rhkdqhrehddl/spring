@@ -68,7 +68,7 @@
 	/*
 	* 계좌이체 연동을 위한 파라미터(필수)
 	*/
-	String LGD_MTRANSFERWAPURL 		= "";
+	String LGD_MTRANSFERWAPURL 		= "ispmobile:// ";
 	String LGD_MTRANSFERCANCELURL 	= "";   
 	   
 	
@@ -183,7 +183,7 @@
 	- 안드로이드, iOS: A
 	*/
 	payReqMap.put("LGD_KVPMISPAUTOAPPYN"	, "A");					// 신용카드 결제 사용시 필수
-	payReqMap.put("LGD_MTRANSFERAUTOAPPYN"	, "A");					// 계좌이체 결제 사용시 필수
+	payReqMap.put("LGD_MTRANSFERAUTOAPPYN"	, "Y");					// 계좌이체 결제 사용시 필수
 	
 	
 	payReqMap.put("LGD_ENCODING"          			, "UTF-8" );

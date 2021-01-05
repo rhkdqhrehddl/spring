@@ -175,7 +175,7 @@
      //payReqMap.put("LGD_USABLECARD"          , "11:51" );
      payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:6:7:8:9:10:11:12" );
      payReqMap.put("LGD_NOINTINF"          , "21-3:6:7:8:9:12,51-7:8:9:12" );
-     //payReqMap.put("LGD_LANGUAGE"          , "EN" );
+     payReqMap.put("LGD_LANGUAGE"          , "EN");
      payReqMap.put("LGD_PRODUCTCODE"          , "test1234" );
      
 /* 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y" );                  

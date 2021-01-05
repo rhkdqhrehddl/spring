@@ -41,6 +41,7 @@
     String LGD_BUYEREMAIL       = request.getParameter("LGD_BUYEREMAIL");               //구매자 이메일
     String LGD_TIMESTAMP        = request.getParameter("LGD_TIMESTAMP");                //타임스탬프
     String LGD_CUSTOM_USABLEPAY = request.getParameter("LGD_CUSTOM_USABLEPAY");        	//상점정의 초기결제수단
+    String LGD_LANGUAGE 		= request.getParameter("LGD_LANGUAGE");        	//상점정의 초기결제수단
     String LGD_CUSTOM_SKIN      = "red";                                                //상점정의 결제창 스킨(red)
     String LGD_CUSTOM_PROCESSTYPE = "TWOTR";
  
@@ -175,7 +176,7 @@
      //payReqMap.put("LGD_USABLECARD"          , "11:51" );
      payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:6:7:8:9:10:11:12" );
      payReqMap.put("LGD_NOINTINF"          , "21-3:6:7:8:9:12,51-7:8:9:12" );
-     //payReqMap.put("LGD_LANGUAGE"          , "EN" );
+     payReqMap.put("LGD_LANGUAGE"          , LGD_LANGUAGE );
      payReqMap.put("LGD_PRODUCTCODE"          , "test1234" );
      
 /* 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y" );                  

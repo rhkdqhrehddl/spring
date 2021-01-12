@@ -200,7 +200,9 @@
      payReqMap.put("LGD_DEFAULTCASHRECEIPTUSE", "2");
      payReqMap.put("LGD_BUYERPHONE", "01020202020");
     // payReqMap.put("LGD_AUTOCOPYYN_CASHCARDNUM", )
-     
+    payReqMap.put("LGD_BUYERSSN", "{\"produ******List\":[{\"productId\":418452,\"color\":\"001\",\"size\":\"8 UK\",\"count\":1}],\"finalAmount\":100000,\"shippingFee\":0,\"usePoint\":0,\"payMethod\":\"card\",\"addressId\":673,\"paymentOrderId\":\"P_1610410415576_100448_6821d6\",\"couponCodeList\":[],\"userId\":100448,\"shippingText\":\"\"}");
+    
+    
      /* 계좌이체 파라미터 */    
      //payReqMap.put("LGD_USABLEBANK"          , "" );
      
@@ -221,11 +223,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>통합LG유플러스 전자결서비스 결제테스트</title>
 <!-- test일 경우 -->
-<!-- <script language="javascript" src="https://pretest.uplus.co.kr:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script> -->
+<!-- <script language="javascript" src="https://pretest.tosspayments.com:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script> -->
 <script language="JavaScript" src="https://pgweb.tosspayments.com/WEB_SERVER/js/receipt_link.js"></script>
 
 <!--   service일 경우 아래 URL을 사용  -->
-<script language="javascript" src="https://xpayvvip.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
+<script language="javascript" src="https://pretest.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 /*

@@ -115,4 +115,9 @@ public class PGController {
 	public String OpenPay(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/RegisterMert/*.do")
+	public String RegisterMert(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

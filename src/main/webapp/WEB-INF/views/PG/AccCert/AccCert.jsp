@@ -74,6 +74,7 @@
 	xpay.Set("LGD_PRIVATENO", LGD_PRIVATENO);
 	xpay.Set("LGD_BUYERIP", LGD_BUYERIP);
 	xpay.Set("LGD_CHECKNHYN", "Y");
+	xpay.Set("LGD_ENCODING", "UTF-8");
 	
     if ( xpay.TX() ) {
         //1)인증결과 화면처리(성공,실패 결과 처리를 하시기 바랍니다.)

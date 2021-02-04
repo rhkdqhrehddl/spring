@@ -159,6 +159,7 @@
 	 payReqMap.put("LGD_ACTIVEXYN"			, LGD_ACTIVEXYN);						// 계좌이체 결제시 사용, ActiveX 사용 여부
 	 payReqMap.put("LGD_VERSION"         		, "JSP_Non-ActiveX_Standard");			// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.
 	 payReqMap.put("LGD_DOMAIN_URL"           , "xpayvvip");							// TLS1.2 고정버전 도메인
+	 payReqMap.put("LGD_DOMAIN_FULLURL", "https://stg-xpay1.tosspayments.com");
 	 
      // 가상계좌(무통장) 결제연동을 하시는 경우  할당/입금 결과를 통보받기 위해 반드시 LGD_CASNOTEURL 정보를 LG 유플러스에 전송해야 합니다 .
      payReqMap.put("LGD_CASNOTEURL"          , LGD_CASNOTEURL );               // 가상계좌 NOTEURL
@@ -227,7 +228,7 @@
 <script language="JavaScript" src="https://pgweb.tosspayments.com/WEB_SERVER/js/receipt_link.js"></script>
 
 <!--   service일 경우 아래 URL을 사용  -->
-<script language="javascript" src="https://stg-xpay1.tosspayments.com//xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
+<script language="javascript" src="https://xpayvvip.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 /*

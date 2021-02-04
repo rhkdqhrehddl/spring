@@ -227,7 +227,7 @@
 <script language="JavaScript" src="https://pgweb.tosspayments.com/WEB_SERVER/js/receipt_link.js"></script>
 
 <!--   service일 경우 아래 URL을 사용  -->
-<script language="javascript" src="https://pretest.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
+<script language="javascript" src="https://stg-xpay1.tosspayments.com//xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 /*

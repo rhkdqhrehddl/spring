@@ -54,11 +54,11 @@
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다.
      */
-    String LGD_CASNOTEURL		= "http://" + serverName + "/PG/XPayClient/cas_noteurl.do";
+    String LGD_CASNOTEURL		= "https://" + serverName + "/PG/XPayClient/cas_noteurl.do";
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
-    String LGD_RETURNURL		= "http://" + serverName + "/PG/XPayClient/returnurl.do";
+    String LGD_RETURNURL		= "https://" + serverName + "/PG/XPayClient/returnurl.do";
     
     
     String LGD_TAXFREEAMOUNT = request.getParameter("LGD_TAXFREEAMOUNT");

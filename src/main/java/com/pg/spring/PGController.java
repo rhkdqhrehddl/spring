@@ -120,4 +120,10 @@ public class PGController {
 	public String RegisterMert(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+
+	@RequestMapping(value = "/EasyPay/*.do", method = RequestMethod.POST)
+	public String EasyPay(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

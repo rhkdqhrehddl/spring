@@ -126,4 +126,9 @@ public class PGController {
 	public String EasyPay(HttpServletRequest request) {
 		return request.getServletPath().split("[.]")[0];
 	}
+	
+	@RequestMapping(value = "/AnsimKeyin/*.do")
+	public String AnsimKeyin(HttpServletRequest request) {
+		return request.getServletPath().split("[.]")[0];
+	}
 }

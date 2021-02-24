@@ -99,7 +99,6 @@
      } finally {
     	 xpay = null;
      }
-    String LGD_HASHDATA = strBuf.toString();
     String LGD_CUSTOM_PROCESSTYPE = "TWOTR";
     /*
      *************************************************

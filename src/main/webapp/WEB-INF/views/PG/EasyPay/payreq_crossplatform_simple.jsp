@@ -201,7 +201,7 @@ function getFormObject() {
 				document.getElementById("LGD_PAYKEY").value = fDoc.document.getElementById('LGD_PAYKEY').value;
 				
 				document.getElementById("LGD_PAYINFO").target = "_self";
-				document.getElementById("LGD_PAYINFO").action = "payres.jsp"; // 고객사 payres.jsp 호출 주소로 알맞게 수정
+				document.getElementById("LGD_PAYINFO").action = "payres.do"; // 고객사 payres.jsp 호출 주소로 알맞게 수정
 				document.getElementById("LGD_PAYINFO").submit();
 			} else {
 				alert("LGD_RESPCODE (결과코드) : " + fDoc.document.getElementById('LGD_RESPCODE').value + "\n" + "LGD_RESPMSG (결과메시지): " + fDoc.document.getElementById('LGD_RESPMSG').value);

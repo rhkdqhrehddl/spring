@@ -43,6 +43,7 @@
 	    xpay.Set("LGD_BUYERID", LGD_BUYERID);
 	    xpay.Set("LGD_BUYERIP", LGD_BUYERIP);
 	    xpay.Set("LGD_PRODUCTINFO", LGD_PRODUCTINFO);
+		xpay.Set("LGD_ENCODING", "UTF-8");
 	    
 	    
     }catch(Exception e) {

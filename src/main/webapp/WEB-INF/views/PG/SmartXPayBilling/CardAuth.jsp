@@ -83,6 +83,7 @@
 	xpay.Set("LGD_BUYERID", LGD_BUYERID);
 	xpay.Set("LGD_BUYERIP", request.getRemoteAddr());
 	xpay.Set("LGD_PRODUCTINFO", LGD_PRODUCTINFO);
+	xpay.Set("LGD_ENCODING", "UTF-8");
 	
 	if( VBV_ECI.equals("010")){ //키인방식인 경우에만 해당
 		xpay.Set("LGD_EXPYEAR", LGD_EXPYEAR); 

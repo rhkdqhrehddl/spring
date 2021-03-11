@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="lgdacom.XPayClient.XPayClient"%>
 <%
+	request.setCharacterEncoding("utf-8");
     /*
      * [최종결제요청 페이지(STEP2-2)]
 	 *
@@ -15,8 +16,11 @@
 	* 예) [Window 계열] C:\inetpub\wwwroot\lgdacom ==> 절대불가(웹 디렉토리)
 	*/
 	
-    String configPath = "/Volumes/Storage/www/lgdacom";  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
+	String configPath = "C:/lgdacom";  //LG유플러스에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
     
+ 	if(System.getProperty("os.name").equals("Linux")){
+		configPath = "/lgdacom";
+ 	}
     /*
      *************************************************
      * 1.최종결제 요청 - BEGIN
@@ -25,6 +29,7 @@
      */
     
     String CST_PLATFORM				= request.getParameter("CST_PLATFORM");
+    String CST_MID					= request.getParameter("CST_MID");
     String LGD_MID					= request.getParameter("LGD_MID");
     String LGD_PAYKEY				= request.getParameter("LGD_PAYKEY");
 	String LGD_OPENPAY_TOKEN 		= request.getParameter("LGD_OPENPAY_TOKEN");		//로그인 토큰
@@ -151,9 +156,9 @@
 <div>LGD_MID : <%=LGD_MID%></div>
 <div>LGD_TID : <%=xpay.Response("LGD_TID",0)%></div>
 <button onclick="javascript:document.getElementById('cancel').submit();">취소</button>
-<form action="Cancel.jsp" name="cancel" id="cancel" method="POST">
+<form action="Cancel.do" name="cancel" id="cancel" method="POST">
 <input type="hidden" name="CST_PLATFORM" value="<%=CST_PLATFORM%>">
-<input type="hidden" name="LGD_MID" value="<%=LGD_MID%>">
+<input type="hidden" name="CST_MID" value="<%=CST_MID%>">
 <input type="hidden" name="LGD_TID" value="<%=xpay.Response("LGD_TID",0)%>">
 <input type="hidden" name="recentamount" value="<%=LGD_AMOUNT%>">
 </form>

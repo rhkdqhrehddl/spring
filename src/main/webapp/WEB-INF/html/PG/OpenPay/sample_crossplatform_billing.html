@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Åä½ºÆäÀÌ¸ÕÃ÷ ÀüÀÚ°áÁ¦ »ùÇÃ ÆäÀÌÁö (XPay)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>í† ìŠ¤íŽ˜ì´ë¨¼ì¸  ì „ìžê²°ì œ ìƒ˜í”Œ íŽ˜ì´ì§€ (XPay)</title>
 <script type="text/javascript">
 function LPad(digit, size, attatch) {
     var add = "";
@@ -31,17 +31,17 @@ function makeoid() {
 }
 
 /*
-* ÀÎÁõ¿äÃ» Ã³¸® 
+* ì¸ì¦ìš”ì²­ ì²˜ë¦¬ 
 */
 function doPay() {
-	// OID, TIMESTAMP »ý¼º
+	// OID, TIMESTAMP ìƒì„±
 	makeoid();
-	// °áÁ¦Ã¢ È£Ãâ
+	// ê²°ì œì°½ í˜¸ì¶œ
 	document.getElementById("LGD_PAYINFO").submit();
 }
 
 /*
- * mobile, web ¿©ºÎ Ã¼Å©
+ * mobile, web ì—¬ë¶€ ì²´í¬
  */
 function mobileCheck(){
 	var filter = "win16|win32|win64|mac";
@@ -59,56 +59,56 @@ function mobileCheck(){
 </script>
 </head>
 <body onload="javascript:mobileCheck();">
-<form method="post" id="LGD_PAYINFO" action="payreq_crossplatform_billing.jsp">
+<form method="post" id="LGD_PAYINFO" action="payreq_crossplatform_billing.do">
     <div>
         <table>
             <tr>
-                <td>»óÁ¡¾ÆÀÌµð(t¸¦ Á¦¿ÜÇÑ ¾ÆÀÌµð) </td>
+                <td>ìƒì ì•„ì´ë””(të¥¼ ì œì™¸í•œ ì•„ì´ë””) </td>
                 <td><input type="text" name="CST_MID" id="CST_MID" value="paynow_test04"/></td>
             </tr>
             <tr>
-                <td>¼­ºñ½º,Å×½ºÆ® </td>
+                <td>ì„œë¹„ìŠ¤,í…ŒìŠ¤íŠ¸ </td>
                 <td><input type="text" name="CST_PLATFORM" id="CST_PLATFORM" value="n2tstaging"/></td>
             </tr>
             <tr>
-                <td>±¸¸ÅÀÚ ÀÌ¸§ </td>
-                <td><input type="text" name="LGD_BUYER" id="LGD_BUYER" value="È«±æµ¿"/></td>
+                <td>êµ¬ë§¤ìž ì´ë¦„ </td>
+                <td><input type="text" name="LGD_BUYER" id="LGD_BUYER" value="í™ê¸¸ë™"/></td>
             </tr>
             <tr>
-                <td>»óÇ°Á¤º¸ </td>
-                <td><input type="text" name="LGD_PRODUCTINFO" id="LGD_PRODUCTINFO" value="myLG070-ÀÎÅÍ³ÝÀüÈ­±â"/></td>
+                <td>ìƒí’ˆì •ë³´ </td>
+                <td><input type="text" name="LGD_PRODUCTINFO" id="LGD_PRODUCTINFO" value="myLG070-ì¸í„°ë„·ì „í™”ê¸°"/></td>
             </tr>
             <tr>
-                <td>°áÁ¦±Ý¾× </td>
+                <td>ê²°ì œê¸ˆì•¡ </td>
                 <td><input type="text" name="LGD_AMOUNT" id="LGD_AMOUNT" value="100"/></td>
             </tr>
             <tr>
-                <td>±¸¸ÅÀÚ ÀÌ¸ÞÀÏ </td>
+                <td>êµ¬ë§¤ìž ì´ë©”ì¼ </td>
                 <td><input type="text" name="LGD_BUYEREMAIL" id="LGD_BUYEREMAIL" value=""/></td>
             </tr>
             <tr>
-                <td>ÁÖ¹®¹øÈ£ </td>
+                <td>ì£¼ë¬¸ë²ˆí˜¸ </td>
                 <td><input type="text" name="LGD_OID" id="LGD_OID" value="test_1234567890020"/></td>
             </tr>
             <tr>
-                <td>Å¸ÀÓ½ºÅÆÇÁ </td>
+                <td>íƒ€ìž„ìŠ¤íƒ¬í”„ </td>
                 <td><input type="text" name="LGD_TIMESTAMP" id="LGD_TIMESTAMP" value="1234567890"/></td>
             </tr>
             <tr>
-                <td>ÃÊ±â°áÁ¦¼ö´Ü </td>
+                <td>ì´ˆê¸°ê²°ì œìˆ˜ë‹¨ </td>
                 <td>
                 	<select name="LGD_CUSTOM_USABLEPAY" id="LGD_CUSTOM_USABLEPAY">
-						<option value="SC0010">½Å¿ëÄ«µå</option>
-						<option value="SC0030">°èÁÂÀÌÃ¼</option>				
+						<option value="SC0010">ì‹ ìš©ì¹´ë“œ</option>
+						<option value="SC0030">ê³„ì¢Œì´ì²´</option>				
 					</select>
 				</td>
 			</tr>
             <tr>
-                <td>Ç¥½ÃÇÒºÎ°³¿ù¼ö LGD_INSTALLRANGE </td>
+                <td>í‘œì‹œí• ë¶€ê°œì›”ìˆ˜ LGD_INSTALLRANGE </td>
                 <td><input type="text" name="LGD_INSTALLRANGE" id="LGD_INSTALLRANGE" value="0:2:3:4:5:6:7:8:9:10:11:12"/></td>
             </tr>
             <tr>
-                <td>¹«ÀÌÀÚÇÒºÎ Àû¿ë¿©ºÎ LGD_NOINT </td>
+                <td>ë¬´ì´ìží• ë¶€ ì ìš©ì—¬ë¶€ LGD_NOINT </td>
                 <td>
                 	<select name="LGD_NOINT" id="LGD_NOINT">
 						<option value="N">N</option>
@@ -117,15 +117,15 @@ function mobileCheck(){
 				</td>
 			</tr>
 			<!-- <tr>
-                <td>¹«ÀÌÀÚÇÒºÎ Àû¿ë Ä«µå»ç+ÇÒºÎ°³¿ù Á¤º¸ LGD_NOINTINF </td>
+                <td>ë¬´ì´ìží• ë¶€ ì ìš© ì¹´ë“œì‚¬+í• ë¶€ê°œì›” ì •ë³´ LGD_NOINTINF </td>
                 <td><input type="text" name="LGD_NOINTINF" id="LGD_NOINTINF" value="31-10:11:12"/></td>
             </tr> -->
             <!-- <tr>
-                <td>»ç¿ë°¡´ÉÀºÇà Ç¥½Ã LGD_USABLEBANK </td>
+                <td>ì‚¬ìš©ê°€ëŠ¥ì€í–‰ í‘œì‹œ LGD_USABLEBANK </td>
                 <td><input type="text" name="LGD_USABLEBANK" id="LGD_USABLEBANK" value="03-06-11"/></td>
             </tr> -->
             <tr>
-                <td>Çö±Ý¿µ¼öÁõ LGD_CASHRECEIPTYN </td>
+                <td>í˜„ê¸ˆì˜ìˆ˜ì¦ LGD_CASHRECEIPTYN </td>
                 <td>
                 	<select name="LGD_CASHRECEIPTYN" id="LGD_CASHRECEIPTYN">
 						<option value="N">N</option>
@@ -134,7 +134,7 @@ function mobileCheck(){
 				</td>
 			</tr>
             <tr>
-                <td>¿¡½ºÅ©·Î LGD_ESCROW_USEYN </td>
+                <td>ì—ìŠ¤í¬ë¡œ LGD_ESCROW_USEYN </td>
                 <td>
                 	<select name="LGD_ESCROW_USEYN" id="LGD_ESCROW_USEYN">
 						<option value="N">N</option>
@@ -143,22 +143,18 @@ function mobileCheck(){
 				</td>
 			</tr>
             <tr>
-                <td>°áÁ¦Ã¢ È£Ãâ ¹æ½Ä </td>
+                <td>ê²°ì œì°½ í˜¸ì¶œ ë°©ì‹ </td>
                 <td><input type="text" name="LGD_WINDOW_TYPE" id="LGD_WINDOW_TYPE" value=""/></td>
-            </tr>
-            <tr>
-                <td>LGD_OPENPAY_TOKEN</td>
-                <td><input type="text" name="LGD_OPENPAY_TOKEN" id="LGD_OPENPAY_TOKEN" value="7534364922be080e7785d689ef5f647d037e686982f55f069544b07bc3b886188c6f5cef75dfc1e80010ae5f6cfc34f5fe8dfae17a95ec4d48a73a036b86800c"/></td>
             </tr>
             <tr>
                 <td>LGD_OPENPAY_MER_UID</td>
                 <td><input type="text" name="LGD_OPENPAY_MER_UID" id="LGD_OPENPAY_MER_UID" value="paytech@lgtosspayments.com"/></td>
             </tr>
             <tr>
-                <td>PG Ç¥ÁØ°áÁ¦Ã¢ »çÀÌÁî</td>
+                <td>PG í‘œì¤€ê²°ì œì°½ ì‚¬ì´ì¦ˆ</td>
                 <td>
                 	<select name="VIEW_AGREE" id="VIEW_AGREE" style="width:100%">
-                		<option value="">¼±ÅÃÇÏ¼¼¿ä.</option>
+                		<option value="">ì„ íƒí•˜ì„¸ìš”.</option>
                 		<option value="Y">Y</option>
 						<option value="N" selected>N</option>
 					</select>
@@ -166,11 +162,12 @@ function mobileCheck(){
             </tr>
             <tr>
                 <td colspan="2">
-                <input type="button" value="°áÁ¦ÇÏ±â" onclick="doPay();" /><br/>
+                <input type="button" value="ê²°ì œí•˜ê¸°" onclick="doPay();" /><br/>
                 </td>
             </tr>
         </table>
-    </div>
+   		<input type="hidden" name="LGD_OPENPAY_TOKEN" id="LGD_OPENPAY_TOKEN" value="83a94638f0eaf5701c3d912d54c8b3233f8e14039f7c105c4db6c26909a5ba3f43e2e37d67f16f8aa62a7209a4f7b9f3cb0447e1546c1a5ca6e9b923b832a0cb"/>
+     </div>
     </form>
 </body>
 </html>

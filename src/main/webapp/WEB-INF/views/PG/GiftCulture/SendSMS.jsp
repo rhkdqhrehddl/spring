@@ -31,6 +31,7 @@
     xpay.Set("LGD_METHOD", "SMS");
     xpay.Set("LGD_TID", LGD_TID);
     xpay.Set("LGD_CULTID", LGD_CULTID);
+	xpay.Set("LGD_ENCODING", "UTF-8");
  
     /*
      * SMS 발송요청 결과      

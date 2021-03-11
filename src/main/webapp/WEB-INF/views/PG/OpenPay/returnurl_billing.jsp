@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%
-request.setCharacterEncoding("euc-kr");
+request.setCharacterEncoding("utf-8");
 
 String LGD_RESPCODE = request.getParameter("LGD_RESPCODE");
 String LGD_RESPMSG 	= request.getParameter("LGD_RESPMSG");
@@ -9,7 +9,7 @@ String LGD_RESPMSG 	= request.getParameter("LGD_RESPMSG");
 Map payReqMap = request.getParameterMap();
 %>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
 	<script type="text/javascript">
 
@@ -23,7 +23,7 @@ Map payReqMap = request.getParameterMap();
 			//out.println("LGD_WINDOW_TYPE=["+LGD_WINDOW_TYPE+"]");
 			if(LGD_WINDOW_TYPE.equals("submit"))
 			{
-				out.println("document.LGD_PAYINFO.action='payres_billing.jsp';");
+				out.println("document.LGD_PAYINFO.action='payres_billing.do';");
 				out.println("document.LGD_PAYINFO.submit();");
 			}
 			else
@@ -32,30 +32,26 @@ Map payReqMap = request.getParameterMap();
 			}
 		}
 		%>	
+		parent.payment_return();
 		}		
 	</script>
 </head>
 <body onload="setLGDResult()">
-<p><h1>RETURN_URL (ÀÎÁõ°á°ú)</h1></p>
+<p><h1>RETURN_URL (ì¸ì¦ê²°ê³¼)</h1></p>
 <div>
-<p>LGD_RESPCODE (°á°úÄÚµå) : <%= LGD_RESPCODE %></p>
-<p>LGD_RESPMSG (°á°ú¸Ş½ÃÁö): <%= LGD_RESPMSG %></p>
+<p>LGD_RESPCODE (ê²°ê³¼ì½”ë“œ) : <%= LGD_RESPCODE %></p>
+<p>LGD_RESPMSG (ê²°ê³¼ë©”ì‹œì§€): <%= LGD_RESPMSG %></p>
 	<form method="post" name="LGD_PAYINFO" id="LGD_PAYINFO" action="payres_billing.jsp">
 	<%
-	for (Iterator i = payReqMap.keySet().iterator(); i.hasNext();) 
-	{
+	for (Iterator i = payReqMap.keySet().iterator(); i.hasNext();) 	{
 		Object key = i.next();
-		if (payReqMap.get(key) instanceof String[]) 
-		{
+		if (payReqMap.get(key) instanceof String[]) 	{
 			String[] valueArr = (String[])payReqMap.get(key);
-			for(int k = 0; k < valueArr.length; k++) 
-			{
+			for(int k = 0; k < valueArr.length; k++) {
 				out.println("<input type='hidden' name='" + key + "' id='"+key+"'value='" + valueArr[k] + "'/>");
 				System.out.println("* " + key + " = " + valueArr[k]);
 			}
-		}
-		else 
-		{
+		}else {
 			String value = payReqMap.get(key) == null ? "" : (String) payReqMap.get(key);
 			out.println("<input type='hidden' name='" + key + "' id='"+key+"'value='" + value + "'/>");
 		}

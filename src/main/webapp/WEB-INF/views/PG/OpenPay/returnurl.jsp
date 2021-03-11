@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%
-request.setCharacterEncoding("euc-kr");
+request.setCharacterEncoding("utf-8");
 
 String LGD_RESPCODE = request.getParameter("LGD_RESPCODE");
 String LGD_RESPMSG 	= request.getParameter("LGD_RESPMSG");
@@ -13,27 +13,26 @@ Map payReqMap = request.getParameterMap();
 <head>
 	<script type="text/javascript">
 
-	function setLGDResult() 
-	{
-	<%
-	if(LGD_RESPCODE.equals("0000"))
-	{
-		Map payReqMapSession = (HashMap)session.getAttribute("PAYREQ_MAP");
-		String LGD_WINDOW_TYPE = payReqMapSession.get("LGD_WINDOW_TYPE") == null ? "" : (String) payReqMapSession.get("LGD_WINDOW_TYPE");
-		//out.println("LGD_WINDOW_TYPE=["+LGD_WINDOW_TYPE+"]");
-		if(LGD_WINDOW_TYPE.equals("submit"))
-		{
-			out.println("document.LGD_PAYINFO.action='payres.jsp';");
-			out.println("document.LGD_PAYINFO.submit();");
-		}
-		else
-		{
-			out.println("parent.payment_return();");
-		}
-	}
-	%>	
-	}	
-		
+	function setLGDResult() {
+		<%
+			if(LGD_RESPCODE.equals("0000"))
+			{
+				Map payReqMapSession = (HashMap)session.getAttribute("PAYREQ_MAP");
+				String LGD_WINDOW_TYPE = payReqMapSession.get("LGD_WINDOW_TYPE") == null ? "" : (String) payReqMapSession.get("LGD_WINDOW_TYPE");
+				//out.println("LGD_WINDOW_TYPE=["+LGD_WINDOW_TYPE+"]");
+				if(LGD_WINDOW_TYPE.equals("submit"))
+				{
+					out.println("document.LGD_PAYINFO.action='payres.do';");
+					out.println("document.LGD_PAYINFO.submit();");
+				}
+				else
+				{
+					out.println("parent.payment_return();");
+				}
+			}
+		%>	
+		parent.payment_return();
+	}			
 	</script>
 </head>
 <body onload="setLGDResult()">

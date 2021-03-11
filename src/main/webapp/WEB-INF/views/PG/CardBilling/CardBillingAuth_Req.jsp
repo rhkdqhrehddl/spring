@@ -21,6 +21,7 @@
      * 인증기본정보를 변경하여 주시기 바랍니다. 
      */
  	String serverName = request.getServerName();
+    String protocol = request.isSecure() ? "https://" : "http://";
     String CST_PLATFORM			= request.getParameter("CST_PLATFORM").trim();     			//LG유플러스 인증서비스 선택(test:테스트, service:서비스)                                              
     String CST_MID				= request.getParameter("CST_MID").trim();          			//LG유플러스으로 부터 발급받으신 상점아이디를 입력하세요. 
                                                                                             //테스트 아이디는 't'를 제외하고 입력하세요.
@@ -36,7 +37,7 @@
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
- 	String LGD_RETURNURL			= "https://" + serverName + "/PG/CardBilling/returnurl.do";		// FOR MANUAL
+ 	String LGD_RETURNURL			= protocol + serverName + "/PG/CardBilling/returnurl.do";		// FOR MANUAL
 
 	Map payReqMap = new HashMap();
 		 

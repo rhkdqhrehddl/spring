@@ -20,6 +20,7 @@
      */
 
   	String sessionid = request.getSession().getId();
+    String protocol = request.isSecure() ? "https://" : "http://";
   	response.setHeader("SET-COOKIE", "JSESSIONID=" + sessionid + "; Path=/; Secure; SameSite=None");
 
   	String serverName = request.getServerName();
@@ -59,7 +60,7 @@
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */
      
-    String LGD_RETURNURL		 = "https://" + serverName + "/PG/OpenPay/returnurl.do";// FOR MANUAL
+    String LGD_RETURNURL		 = protocol + serverName + "/PG/OpenPay/returnurl.do";// FOR MANUAL
 
     /*
      *************************************************
@@ -127,7 +128,7 @@
 	payReqMap.put("LGD_OPENPAY_TOKEN"			, LGD_OPENPAY_TOKEN);					// 오픈페이 결제 고객 로그인 토큰
 	payReqMap.put("LGD_OPENPAY_MER_UID"			, LGD_OPENPAY_MER_UID);					// 오픈페이 결제 고객 가맹점 ID
 	payReqMap.put("LGD_DOMAIN_URL"				, "xpayvvip" );	
-    payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:6:7:8:9:10:11:12" );
+    payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:4:5:6:7:8:9:10:11:12" );
     payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
     payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );
 	

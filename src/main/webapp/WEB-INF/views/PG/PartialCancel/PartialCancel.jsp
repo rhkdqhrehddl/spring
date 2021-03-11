@@ -59,6 +59,7 @@
     xpay.Set("LGD_RFACCOUNTNUM", LGD_RFACCOUNTNUM);
     xpay.Set("LGD_RFCUSTOMERNAME", LGD_RFCUSTOMERNAME);
     xpay.Set("LGD_RFPHONE", LGD_RFPHONE);
+	xpay.Set("LGD_ENCODING", "UTF-8");
     
     
     /* 신용카드 거래건 관련 파라미터 */

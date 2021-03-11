@@ -94,6 +94,7 @@
 	xpay.Set("LGD_CARDTYPE", LGD_CARDTYPE);
 	xpay.Set("LGD_CURRENCY", LGD_CURRENCY);
 	xpay.Set("LGD_POINTUSE", LGD_POINTUSE);
+	xpay.Set("LGD_ENCODING", "UTF-8");
 	
 	if (LGD_AUTHTYPE.equals("ISP")){
 		xpay.Set("KVP_QUOTA", KVP_QUOTA);

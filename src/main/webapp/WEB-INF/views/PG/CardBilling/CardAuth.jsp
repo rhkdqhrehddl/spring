@@ -83,6 +83,7 @@
 	xpay.Set("LGD_BUYERID", LGD_BUYERID);
 	xpay.Set("LGD_BUYERIP", request.getRemoteAddr());
 	xpay.Set("LGD_PRODUCTINFO", LGD_PRODUCTINFO);
+	xpay.Set("LGD_ENCODING", "UTF-8");
 	
 	
 	//xpay.Set("LGD_BUYERADDRESS", "LGD_BUYERADDRESS");

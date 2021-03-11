@@ -26,6 +26,7 @@
 		xpay.Set("LGD_TID", LGD_TID);
 	    xpay.Set("LGD_AMOUNT", LGD_AMOUNT);
 	    xpay.Set("LGD_CULTPIN", LGD_CULTPIN);
+		xpay.Set("LGD_ENCODING", "UTF-8");
 	    
     }catch(Exception e) {
     	out.println("토스페이먼츠 제공 API를 사용할 수 없습니다. 환경파일 설정을 확인해 주시기 바랍니다. ");

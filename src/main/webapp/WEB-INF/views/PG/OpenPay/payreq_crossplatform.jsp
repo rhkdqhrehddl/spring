@@ -115,7 +115,7 @@
 	payReqMap.put("LGD_CUSTOM_USABLEPAY"  		, LGD_CUSTOM_USABLEPAY );				// 디폴트 결제수단 (해당 필드를 보내지 않으면 결제수단 선택 UI 가 보이게 됩니다.)
 	payReqMap.put("LGD_CUSTOM_SWITCHINGTYPE"  	, LGD_CUSTOM_SWITCHINGTYPE );			// 신용카드 카드사 인증 페이지 연동 방식
 	payReqMap.put("LGD_WINDOW_VER"  			, LGD_WINDOW_VER );						// 결제창 버젼정보 
-	//payReqMap.put("LGD_OSTYPE_CHECK"           	, LGD_OSTYPE_CHECK);                    // 값 P: XPay 실행(PC용 결제 모듈), PC, 모바일 에서 선택적으로 결제가능 
+	payReqMap.put("LGD_OSTYPE_CHECK"           	, LGD_OSTYPE_CHECK);                    // 값 P: XPay 실행(PC용 결제 모듈), PC, 모바일 에서 선택적으로 결제가능 
 	payReqMap.put("LGD_INSTALLRANGE"           	, LGD_INSTALLRANGE);                    // 표시할부개월수 
 	payReqMap.put("LGD_NOINT"           		, LGD_NOINT);                    		// 무이자할부 적용여부 
 	//payReqMap.put("LGD_NOINTINF"           		, LGD_NOINTINF);                    	// 무이자할부 적용 카드사+할부개월 정보 
@@ -125,7 +125,7 @@
 	payReqMap.put("LGD_VERSION"         		, "JSP_Non-ActiveX_Standard");			// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.
 	payReqMap.put("LGD_EASYPAY_ONLY"			, "PAYNOW");							// 오픈페이 결제 파라미터(고정)
 	payReqMap.put("LGD_OPENPAY_YN"				, "Y");									// 오픈페이 결제 파라미터(고정)
-	//payReqMap.put("LGD_OPENPAY_TOKEN"			, LGD_OPENPAY_TOKEN);					// 오픈페이 결제 고객 로그인 토큰
+	payReqMap.put("LGD_OPENPAY_TOKEN"			, LGD_OPENPAY_TOKEN);					// 오픈페이 결제 고객 로그인 토큰
 	payReqMap.put("LGD_OPENPAY_MER_UID"			, LGD_OPENPAY_MER_UID);					// 오픈페이 결제 고객 가맹점 ID
 	payReqMap.put("LGD_DOMAIN_URL"				, "xpayvvip" );	
     payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:4:5:6:7:8:9:10:11:12" );

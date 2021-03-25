@@ -71,8 +71,8 @@
 		    
 		    	//금액을 체크하시기 원하는 경우 아래 주석을 풀어서 이용하십시요.
 		    	//String DB_AMOUNT = "DB나 세션에서 가져온 금액"; //반드시 위변조가 불가능한 곳(DB나 세션)에서 금액을 가져오십시요.
-		    	xpay.Set("LGD_AMOUNTCHECKYN", "Y");
-		    	xpay.Set("LGD_AMOUNT", "5000");
+		    	//xpay.Set("LGD_AMOUNTCHECKYN", "Y");
+		    	//xpay.Set("LGD_AMOUNT", "5000");
 		    
 	    	}catch(Exception e) {
 	    		out.println("LG유플러스 제공 API를 사용할 수 없습니다. 환경파일 설정을 확인해 주시기 바랍니다. ");

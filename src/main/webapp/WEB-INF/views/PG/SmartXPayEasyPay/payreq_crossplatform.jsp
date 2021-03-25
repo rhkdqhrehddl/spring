@@ -146,13 +146,9 @@
 	payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
     payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );
     payReqMap.put("LGD_ENCODING_NOTEURL"          	, "UTF-8" );
-	payReqMap.put("LGD_SELF_CUSTOM"         , "Y");   
-	payReqMap.put("LGD_NOINT"         , "0");   
-	payReqMap.put("LGD_CANCELURL"   			, LGD_RETURNURL );      			   	// 응답수신페이지
 	
-	payReqMap.put("LGD_INSTALL"  			, "0" );
-	payReqMap.put("LGD_SP_CHAIN_CODE"  			, "0" );					//할부개월
-	payReqMap.put("LGD_CARDTYPE"  			, "" );						//결제 신용카드
+	payReqMap.put("LGD_INSTALLRANGE"  			, LGD_INSTALLRANGE );					//할부개월
+	payReqMap.put("LGD_USABLECARD"  			, LGD_USABLECARD );						//결제 신용카드
 	payReqMap.put("LGD_EASYPAY_ONLY"			, LGD_EASYPAY_ONLY );					//paynow 사용여부
 	payReqMap.put("LGD_MONEPAY_AUTORUNYN"		, LGD_MONEPAY_AUTORUNYN );				//paynow 자동구동 여부
 	//payReqMap.put("LGD_PCVIEWYN"				, LGD_PCVIEWYN );						//휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)

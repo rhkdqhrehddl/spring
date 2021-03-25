@@ -168,19 +168,19 @@
      payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
      payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );
      payReqMap.put("LGD_ENCODING_NOTEURL"          	, "UTF-8" );
-     payReqMap.put("LGD_TAXFREEAMOUNT"				, LGD_TAXFREEAMOUNT );
+     //payReqMap.put("LGD_TAXFREEAMOUNT"				, LGD_TAXFREEAMOUNT );
  	 //payReqMap.put("LGD_DIVIDE_INFO", 				LGD_DIVIDE_INFO );			//분할정산 관련 파라미터
- 	 payReqMap.put("LGD_RETURN_MERT_CUSTOM_PARAM"	, "Y");							//임의의 파라미터를 returnurl로 전달 가능
+ 	 //payReqMap.put("LGD_RETURN_MERT_CUSTOM_PARAM"	, "Y");							//임의의 파라미터를 returnurl로 전달 가능
      //payReqMap.put("LGD_DISABLE_AGREE"				, "Y");
      /* 신용카드 결제 파라미터 */
      
-     //payReqMap.put("LGD_USABLECARD"          , "11:51" );
+     //payReqMap.put("LGD_USABLEBANK"          , "06" );
      payReqMap.put("LGD_INSTALLRANGE"          , "0:2:3:6:7:8:9:10:11:12" );
-     payReqMap.put("LGD_NOINTINF"          , "21-3:6:7:8:9:12,51-7:8:9:12" );
+    // payReqMap.put("LGD_NOINTINF"          , "21-3:6:7:8:9:12,51-7:8:9:12" );
      if(!LGD_LANGUAGE.equals("KR")){
     	payReqMap.put("LGD_LANGUAGE"          , LGD_LANGUAGE );
      }
-     payReqMap.put("LGD_PRODUCTCODE"          , "test1234" );
+    // payReqMap.put("LGD_PRODUCTCODE"          , "test1234" );
      
 /* 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y" );                  
      payReqMap.put("LGD_CARDTYPE"         	 , "21" );    */
@@ -198,10 +198,9 @@
      
      /* 가상계좌/계좌이체 공통 파라미터*/
      //payReqMap.put("LGD_CASHRECEIPTYN"          , "Y" );
-     payReqMap.put("LGD_DEFAULTCASHRECEIPTUSE", "2");
-     payReqMap.put("LGD_BUYERPHONE", "01020202020");
+    // payReqMap.put("LGD_DEFAULTCASHRECEIPTUSE", "2");
+   //  payReqMap.put("LGD_BUYERPHONE", "01020202020");
     // payReqMap.put("LGD_AUTOCOPYYN_CASHCARDNUM", )
-    payReqMap.put("LGD_BUYERSSN", "{\"produ******List\":[{\"productId\":418452,\"color\":\"001\",\"size\":\"8 UK\",\"count\":1}],\"finalAmount\":100000,\"shippingFee\":0,\"usePoint\":0,\"payMethod\":\"card\",\"addressId\":673,\"paymentOrderId\":\"P_1610410415576_100448_6821d6\",\"couponCodeList\":[],\"userId\":100448,\"shippingText\":\"\"}");
     
     
      /* 계좌이체 파라미터 */    

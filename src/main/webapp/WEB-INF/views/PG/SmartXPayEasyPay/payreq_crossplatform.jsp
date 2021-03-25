@@ -146,6 +146,7 @@
 	payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
     payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );
     payReqMap.put("LGD_ENCODING_NOTEURL"          	, "UTF-8" );
+	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y");   
 	
 	payReqMap.put("LGD_INSTALLRANGE"  			, LGD_INSTALLRANGE );					//할부개월
 	payReqMap.put("LGD_USABLECARD"  			, LGD_USABLECARD );						//결제 신용카드

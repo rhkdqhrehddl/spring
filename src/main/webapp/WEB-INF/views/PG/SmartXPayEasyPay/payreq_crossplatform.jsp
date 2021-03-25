@@ -146,8 +146,9 @@
 	payReqMap.put("LGD_ENCODING"          			, "UTF-8" );
     payReqMap.put("LGD_ENCODING_RETURNURL"         , "UTF-8" );
     payReqMap.put("LGD_ENCODING_NOTEURL"          	, "UTF-8" );
-	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y");   
-	 payReqMap.put("LGD_NOINT"         , "0");   
+	payReqMap.put("LGD_SELF_CUSTOM"         , "Y");   
+	payReqMap.put("LGD_NOINT"         , "0");   
+	payReqMap.put("LGD_CANCELURL"   			, LGD_RETURNURL );      			   	// 응답수신페이지
 	
 	payReqMap.put("LGD_INSTALL"  			, "0" );
 	payReqMap.put("LGD_SP_CHAIN_CODE"  			, "0" );					//할부개월

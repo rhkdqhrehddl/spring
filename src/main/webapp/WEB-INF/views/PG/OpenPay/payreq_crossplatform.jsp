@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.security.MessageDigest, java.util.*" %>
-
-<!-- XpayUtil 라이브러리 사용하여 LGD_HASHDATA 생성 시 -->
 <%@ page import="lgdacom.XPayClient.XPayUtil"%>
 
 

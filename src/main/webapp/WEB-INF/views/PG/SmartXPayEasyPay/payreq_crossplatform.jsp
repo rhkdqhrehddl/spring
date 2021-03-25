@@ -149,7 +149,8 @@
 	 payReqMap.put("LGD_SELF_CUSTOM"         , "Y");   
 	 payReqMap.put("LGD_NOINT"         , "0");   
 	
-	payReqMap.put("LGD_INSTALL"  			, "0" );					//할부개월
+	payReqMap.put("LGD_INSTALL"  			, "0" );
+	payReqMap.put("LGD_SP_CHAIN_CODE"  			, "0" );					//할부개월
 	payReqMap.put("LGD_CARDTYPE"  			, "" );						//결제 신용카드
 	payReqMap.put("LGD_EASYPAY_ONLY"			, LGD_EASYPAY_ONLY );					//paynow 사용여부
 	payReqMap.put("LGD_MONEPAY_AUTORUNYN"		, LGD_MONEPAY_AUTORUNYN );				//paynow 자동구동 여부

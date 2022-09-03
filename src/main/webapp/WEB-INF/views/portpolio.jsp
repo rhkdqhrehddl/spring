@@ -63,7 +63,7 @@
           <span class="text-primary">Portfolio</span>
         </h1>
         <div class="subheading mb-5">서울특별시 강서구 방화동로 3길 1 1205호 · +82 10 2823 7618 ·
-          <a href="mailto:name@email.com">rhkdqhrehddl@gmail.com</a>
+          <a href="mailto:rhkdqhrehddl@gmail.com">rhkdqhrehddl@gmail.com</a>
         </div>
         <table class="lead mb-5">
         	<tr>

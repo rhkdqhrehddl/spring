@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Project Portfolio</title>
+  <title>Portfolio</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.css">
@@ -60,7 +60,7 @@
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
         <h1 class="mb-0">Lee Won Jun's
-          <span class="text-primary">Project Portfolio</span>
+          <span class="text-primary">Portfolio</span>
         </h1>
         <div class="subheading mb-5">서울특별시 강서구 방화동로 3길 1 1205호 · +82 10 2823 7618 ·
           <a href="mailto:name@email.com">rhkdqhrehddl@gmail.com</a>

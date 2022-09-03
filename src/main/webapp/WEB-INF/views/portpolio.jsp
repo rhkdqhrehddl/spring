@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Project Portpolio</title>
+  <title>Project Portfolio</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.css">
@@ -62,7 +62,7 @@
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
         <h1 class="mb-0">Lee Won Jun's
-          <span class="text-primary">Project Portpolio</span>
+          <span class="text-primary">Project Portfolio</span>
         </h1>
         <div class="subheading mb-5">경상남도 김해시 분성로 14 · +82 10 2823 7618 ·
           <a href="mailto:name@email.com">rhkdqhrehddl@naver.com</a>

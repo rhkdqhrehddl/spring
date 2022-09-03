@@ -65,7 +65,7 @@
           <span class="text-primary">Project Portfolio</span>
         </h1>
         <div class="subheading mb-5">경상남도 김해시 분성로 14 · +82 10 2823 7618 ·
-          <a href="mailto:name@email.com">rhkdqhrehddl@naver.com</a>
+          <a href="mailto:name@email.com">rhkdqhrehddl@gmail.com</a>
         </div>
         <table class="lead mb-5">
         	<tr>

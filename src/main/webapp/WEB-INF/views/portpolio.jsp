@@ -62,7 +62,7 @@
         <h1 class="mb-0">Lee Won Jun's
           <span class="text-primary">Project Portfolio</span>
         </h1>
-        <div class="subheading mb-5">경상남도 김해시 분성로 14 · +82 10 2823 7618 ·
+        <div class="subheading mb-5">서울특별시 강서구 방화동로 3길 1 1205호 · +82 10 2823 7618 ·
           <a href="mailto:name@email.com">rhkdqhrehddl@gmail.com</a>
         </div>
         <table class="lead mb-5">

@@ -176,7 +176,6 @@
 						1. 사용자(학생) : 실습실 예약 현황 확인, 실습실 예약, 예약 사항 변경 등	</br>
 						2. 관리자(조교) : 예약 신청 현황 확인, 예약 승인/거부 및 SMS 전송등	</br>
 						개발기간 : 2 ~ 3 개월 </br>
-						<a href="http://localhost:8080/Lab/login.jsp">관련 Link</a>	</br>
 					</td>
 				</tr>
 			</table>
@@ -224,7 +223,7 @@
 						2. VerticalViewPager를 이용하여 위 아래로 슬라이드함에 따라 페이지에 출력되는 달의 저번 달이나 다음 달의 달력을 보여줍니다. </br>
 						3. 해당 날짜를 클릭하여 양력 또는 음력으로 원하는 날에 일정을 추가할 수 있습니다. 	</br>
 						4. 등록해둔 일정 하루 전 날 정오에 일정에 대한 알림을 보냅니다.		</br>
-						<a href="https://onestore.co.kr/userpoc/apps/view?pid=0000729341">One Store Link</a>
+						<a href="https://m.onestore.co.kr/mobilepoc/apps/appsDetail.omp?prodId=0000729341">One Store Link</a>
 					</td>
 				</tr>
 			</table>

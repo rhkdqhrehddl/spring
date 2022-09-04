@@ -38,7 +38,7 @@ public class HomeController {
 	}
 
 
-	@RequestMapping(value = "/portpolio", method = RequestMethod.GET)
+	@RequestMapping(value = "/portfolio", method = RequestMethod.GET)
 	public String portpolio() {
 		return "portpolio";
 	}

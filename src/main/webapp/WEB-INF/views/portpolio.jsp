@@ -66,51 +66,73 @@
           <a href="mailto:rhkdqhrehddl@gmail.com">rhkdqhrehddl@gmail.com</a>
         </div>
         <table class="lead mb-5">
-        	<tr>
-        		<td rowspan="6" style="margin-right:30px;">
-        			<img src="${pageContext.request.contextPath}/resources/images/portpolio.jpg" width="500px" height="600px">
-        		</td>
-        		<td>
-        			Age
-        		</td>
-        		<td>
-        			29 (1994-08-15)
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-        			Main Language
-        		</td>
-        		<td>
-        			Java, Python
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-        			Available Technology
-        		</td>
-        		<td>
-        			JSP, Spring Framework, Big Data, Machine Learning, Raspberry Pi
-        		</td>
-        	</tr>
-        	<tr>
-        		<td rowspan="3">
-        			Education
-        		</td>
-        		<td>
-        			김해가야고등학교 (문과, 2010. 3 ~ 2013. 2)
-        		</td>
-        	</tr>
-        	<tr>
-				<td>
-					연암공과대학교 (스마트소프트웨어학과, 2013. 3 ~ 2019. 2)
-				</td>
-			</tr>
-			<tr>
-				<td>
-					연암공과대학교 (스마트소프트웨어학과[학사학위전공심화과정]), 2019. 3 ~ 2020. 2)
-				</td>
-			</tr>
+        	<tbody>
+        		<tr>
+	        		<td rowspan="6" style="margin-right:30px;">
+	        			<img src="/resources/images/portpolio.jpg" width="500px" height="600px">
+	        		</td>
+	        		<td>
+	                    <table class="lead mb-5">
+	                        <tbody>
+	                        	<tr>
+		                            <td>
+		                                Age
+		                            </td>
+		                            <td>
+		                                29 (1994-08-15)
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                    		<td>
+		                    			Main Language
+		                    		</td>
+		                    		<td>
+		                    			Java, Python
+		                    		</td>
+		                    	</tr>
+		                    	<tr>
+		                    		<td>
+		                    			Available Technology
+		                    		</td>
+		                    		<td>
+		                    			JSP, Spring Framework, Big Data, Machine Learning, Raspberry Pi
+		                    		</td>
+		                    	</tr>
+		                    	<tr>
+		                    		<td rowspan="3">
+		                    			Education
+		                    		</td>
+		                    		<td>
+		                    			김해가야고등학교 (문과, 2010. 3 ~ 2013. 2)
+		                    		</td>
+		                    	</tr>
+		                    	<tr>
+		            				<td>
+		            					연암공과대학교 (스마트소프트웨어학과, 2013. 3 ~ 2019. 2)
+		            				</td>
+		            			</tr>
+		            			<tr>
+		            				<td>
+		            					연암공과대학교 (스마트소프트웨어학과[학사학위전공심화과정]), 2019. 3 ~ 2020. 2)
+		            				</td>
+		            			</tr>
+		            			<tr>
+		            				<td>
+		            					Career
+		            				</td>
+		            				<td rowspan="2">
+		            					이커머스테크 (2020. 4 ~ 2021. 3)
+		            				</td>
+		            			</tr><tr>
+		            				<td>
+		            					케이스마텍 (2021. 4 ~ )
+		            				</td>
+		            			</tr>
+	                    	</tbody>
+	                    </table>
+	        		</td>    
+	        	</tr>
+        	</tbody>
         </table>
       </div>
     </section>

@@ -117,13 +117,14 @@
 		            				</td>
 		            			</tr>
 		            			<tr>
-		            				<td>
+		            				<td rowspan="2">
 		            					Career
 		            				</td>
-		            				<td rowspan="2">
+		            				<td>
 		            					이커머스테크 (2020. 4 ~ 2021. 3)
 		            				</td>
-		            			</tr><tr>
+		            			</tr>
+		            			<tr>
 		            				<td>
 		            					케이스마텍 (2021. 4 ~ )
 		            				</td>
